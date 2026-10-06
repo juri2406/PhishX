@@ -24,6 +24,16 @@ class URLTests(unittest.TestCase):
         self.assertEqual(a['normalized']['registrable_domain'],'attacker.co.uk')
         self.assertEqual(a['features']['brand_in_subdomain'],1)
         self.assertEqual(normalize_url('https://alice.github.io').registrable_domain,'alice.github.io')
+    def test_private_suffix_host_itself(self):
+        for host in ('github.io','s3.amazonaws.com','cloudflare-ipfs.com'):
+            with self.subTest(host=host):
+                self.assertEqual(normalize_url('https://'+host+'/content').registrable_domain,host)
+
+    def test_formatting_equivalent_features(self):
+        variants=['https://paypal.com','https://paypal.com/','https://www.paypal.com','https://www.paypal.com/']
+        features=[analyze_url(u)['features'] for u in variants]
+        self.assertTrue(all(row==features[0] for row in features))
+
     def test_invalid(self):
         for url in ('', 'javascript:alert(1)','ftp://example.org','https://x..com','https://example.org:99999','https://example.org/a b','https://example.org/%zz','https://exa\\mple.org'):
             with self.subTest(url=url),self.assertRaises(InvalidURL): normalize_url(url)

@@ -8,6 +8,7 @@ def main():
     p=sub.add_parser('analyze'); p.add_argument('url')
     p=sub.add_parser('prepare'); p.add_argument('csv'); p.add_argument('output'); p.add_argument('--seed',type=int,default=42)
     p=sub.add_parser('train'); p.add_argument('splits'); p.add_argument('output')
+    p=sub.add_parser('robustness'); p.add_argument('splits'); p.add_argument('--model',required=True); p.add_argument('--output',required=True); p.add_argument('--per-family',type=int,default=200)
     p=sub.add_parser('predict'); p.add_argument('url'); p.add_argument('--model',required=True)
     args=parser.parse_args()
     try:
@@ -18,6 +19,9 @@ def main():
         elif args.command=='train':
             from .model import train
             result=train(args.splits,args.output)
+        elif args.command=='robustness':
+            from .robustness import evaluate_robustness
+            result=evaluate_robustness(args.splits,args.model,args.output,args.per_family)
         else:
             from .model import predict
             result=predict(args.url,args.model)

@@ -1,22 +1,16 @@
 """Startup-loaded bridge to Person 2's existing provider contract."""
-import hashlib
 import os
-from importlib.resources import files
-import joblib
 from phishx import FEATURE_NAMES, analyze_url, InvalidURL as ParseError
 from backend.app.providers import Prediction, InvalidURL
+from phishx.model import load_bundle
 from backend.app.schemas import Signal
 
 class ModelProvider:
     calibrated = False
 
     def __init__(self, path):
-        bundle = joblib.load(path)
-        if bundle['feature_names'] != list(FEATURE_NAMES):
-            raise ValueError('Feature schema mismatch')
-        for name, expected in bundle['resource_hashes'].items():
-            if hashlib.sha256(files('phishx').joinpath('resources', name).read_bytes()).hexdigest() != expected:
-                raise ValueError('Resource checksum mismatch')
+        bundle = load_bundle(path)
+        self.calibrated = bundle.get('probability_calibrated', False)
         self.model = bundle['model']
         if list(self.model.classes_) != [0, 1]:
             raise ValueError('Expected binary labels 0=benign, 1=phishing')

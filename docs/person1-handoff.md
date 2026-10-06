@@ -76,4 +76,38 @@ resource hashes, loads the estimator once, and returns the exact feature row in
 Prediction.context. It attempts the existing TreeShapAdapter with probability
 scale and phishing label 1. If SHAP initialization fails, prediction still works
 and explanations explicitly fail as unavailable through the backend contract.
-A real trained artifact and held-out evaluation are still pending dataset intake.
+An experimental real-data artifact and fresh evaluation are now available. See evaluation-run03.md for results and remaining false alarms.
+
+## Extractor version checks
+
+New artifacts include hashes of features.py, urls.py and skeleton.py in addition
+to brand/Unicode resource hashes. An old artifact without the extractor version
+is rejected by the current inference code. Retrain rather than bypassing the
+check. The current feature representation uses the canonical URL, treats absent
+root paths as `/`, and removes one leading `www` presentation prefix for lexical
+ML features. It preserves the submitted/actual hostname in the report. Raw
+encoding indicators remain separate features. Feature count/order is unchanged.
+
+
+## Experimental artifact from the VS Code work
+
+Local artifact: `artifacts/uci-run03/classical.joblib`.
+Version: `rf-v2-1774537c789e-seed42`.
+SHA256: `2b59557ed0a23220bd69e0f2775ad934d20fa1587ff71fe2decb750fb2ff8ac7`.
+
+The model uses 18 numeric features, 150 random-forest trees, max depth selected
+on validation F1, label 1 for phishing, and uncalibrated probability output.
+The existing TreeShapAdapter passed phishing-class, probability-scale and
+additivity checks through FastAPI on 20 fresh held-out URLs. Do not calibrate
+or change preprocessing without revisiting this explanation contract.
+
+Fresh evaluation: 4,000 UCI records from domain/skeleton groups excluded from
+the entire initial 10,000-row sample. Accuracy 95.25%, phishing recall 92.55%,
+precision 97.83%, false-positive rate 2.05%. These are same-source historical
+results, not temporal or external-source validation. The artifact still flags
+some known official-domain navigation paths and remains experimental.
+
+Run the VS Code task `PhishX model backend` for local review. Use the committed
+reproduction guide to rebuild the model on a teammate's machine. Binaries and
+raw records remain outside Git. The aggregate report records source attribution,
+checksums, synthetic-family counts and known failures.

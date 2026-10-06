@@ -158,3 +158,23 @@ The shared detection package now lives in `ml/phishx/`. See
 training and CLI commands, and [progress](docs/person1_progress.md) for remaining
 real-data and robustness work. The shared parser uses the agreed 2048-character
 limit. Raw datasets and model outputs stay outside Git.
+
+## VS Code and real data evaluation
+
+VS Code tasks and a backend debug configuration are available in `.vscode/`.
+Follow [the VS Code guide](docs/person1-vscode.md) to reproduce the UCI import,
+training and evaluation. The source is a historical CC BY 4.0 dataset, not a
+current live feed. Its labels are inverted explicitly during import.
+
+The first source-only model exposed severe formatting bias on ordinary URLs.
+Its report is retained in `docs/evaluation-run02.md` as an experimental baseline.
+The corrected extractor uses a consistent root path and removes the leading
+`www` presentation prefix from ML features, while preserving the actual host in
+reports. Frozen artifacts now contain extractor checksums and cannot silently
+run against changed feature code. Real model outputs remain uncalibrated.
+
+The corrected baseline and its fresh 4,000-record evaluation are documented in
+[the current report](docs/evaluation-run03.md). Accuracy is 95.25% on that historical
+source. Known navigation-path false alarms remain; the model is experimental.
+VS Code's model-backend task points to the corrected local artifact in
+`artifacts/uci-run03/`. Data and weights are not committed.

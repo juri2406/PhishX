@@ -16,6 +16,7 @@ def mapping():
             result[''.join(chr(int(x, 16)) for x in source.split())] = ''.join(chr(int(x, 16)) for x in target.split())
     return result
 
+@lru_cache(maxsize=8192)
 def skeleton(text):
     decomposed = unicodedata.normalize('NFD', text.lower())
     return unicodedata.normalize('NFD', ''.join(mapping().get(c, c) for c in decomposed))

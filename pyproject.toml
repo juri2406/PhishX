@@ -17,3 +17,6 @@ where = ["ml"]
 
 [tool.setuptools.package-data]
 phishx = ["resources/*.txt", "resources/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["ml", "."]

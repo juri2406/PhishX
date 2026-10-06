@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "PhishX backend with model",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "backend.app.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8000"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PHISHX_MODE": "model",
+        "PHISHX_PROVIDER": "ml.integration:create_provider",
+        "PHISHX_MODEL_PATH": "${workspaceFolder}/artifacts/uci-run03/classical.joblib",
+        "PYTHONPATH": "${workspaceFolder}/ml"
+      }
+    }
+  ]
+}

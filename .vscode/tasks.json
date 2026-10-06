@@ -1,0 +1,148 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "PhishX tests",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "command": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "args": [
+        "-m",
+        "pytest",
+        "tests",
+        "backend/tests",
+        "-q"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}/ml"
+        }
+      }
+    },
+    {
+      "label": "PhishX analyze URL",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/phishx",
+      "windows": {
+        "command": "${workspaceFolder}/.venv/Scripts/phishx.exe"
+      },
+      "args": [
+        "analyze",
+        "${input:url}"
+      ],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}/ml"
+        }
+      }
+    },
+    {
+      "label": "PhishX train model",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/phishx",
+      "windows": {
+        "command": "${workspaceFolder}/.venv/Scripts/phishx.exe"
+      },
+      "args": [
+        "train",
+        "${input:splits}",
+        "${input:output}"
+      ],
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}/ml"
+        }
+      }
+    },
+    {
+      "label": "PhishX model backend",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "windows": {
+        "command": "${workspaceFolder}/.venv/Scripts/python.exe"
+      },
+      "args": [
+        "-m",
+        "uvicorn",
+        "backend.app.main:app",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8000"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PHISHX_MODE": "model",
+          "PHISHX_PROVIDER": "ml.integration:create_provider",
+          "PHISHX_MODEL_PATH": "${workspaceFolder}/artifacts/uci-run03/classical.joblib",
+          "PYTHONPATH": "${workspaceFolder}/ml"
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "PhishX robustness evaluation",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/phishx",
+      "windows": {
+        "command": "${workspaceFolder}/.venv/Scripts/phishx.exe"
+      },
+      "args": [
+        "robustness",
+        "data/processed/uci-run02",
+        "--model",
+        "artifacts/uci-run03/classical.joblib",
+        "--output",
+        "${input:robustOutput}",
+        "--per-family",
+        "200"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}/ml"
+        }
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "url",
+      "type": "promptString",
+      "description": "URL to analyze",
+      "default": "https://p\u0430ypal.com"
+    },
+    {
+      "id": "splits",
+      "type": "promptString",
+      "description": "Prepared split directory",
+      "default": "data/processed/uci-run02"
+    },
+    {
+      "id": "output",
+      "type": "promptString",
+      "description": "New empty artifact directory",
+      "default": "artifacts/uci-run04"
+    },
+    {
+      "id": "robustOutput",
+      "type": "promptString",
+      "description": "New empty robustness directory",
+      "default": "artifacts/uci-run04-robustness"
+    }
+  ]
+}

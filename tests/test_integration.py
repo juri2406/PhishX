@@ -7,6 +7,7 @@ from pathlib import Path
 import joblib
 from sklearn.ensemble import RandomForestClassifier
 from phishx import FEATURE_NAMES, analyze_url
+from phishx.model import extractor_hashes
 
 class IntegrationTests(unittest.TestCase):
     def test_provider_cached_model_and_error_mapping(self):
@@ -15,7 +16,7 @@ class IntegrationTests(unittest.TestCase):
         rows=[list(analyze_url(u)['features'].values()) for u in
               ['https://example.org','https://paypal.com','https://pаypal.com','http://paypal.attacker.org']]
         model=RandomForestClassifier(n_estimators=5,random_state=42).fit(rows,[0,0,1,1])
-        bundle=dict(model=model,feature_names=list(FEATURE_NAMES),version='synthetic-test-only',
+        bundle=dict(model=model,extractor_hashes=extractor_hashes(),feature_names=list(FEATURE_NAMES),version='synthetic-test-only',
                     resource_hashes={name:hashlib.sha256(files('phishx').joinpath('resources',name).read_bytes()).hexdigest() for name in ('brands.json','confusables.txt')})
         with tempfile.TemporaryDirectory() as tmp:
             artifact=Path(tmp)/'test.joblib';joblib.dump(bundle,artifact)
@@ -40,3 +41,9 @@ class IntegrationTests(unittest.TestCase):
                 self.assertEqual(response.json()['mode'], 'model')
                 self.assertEqual(response.json()['matched_brand'], 'paypal')
                 self.assertEqual(client.post('/scan',json={'url':'https://x..com'}).status_code,422)
+
+            stale=dict(bundle)
+            stale.pop('extractor_hashes')
+            joblib.dump(stale,artifact)
+            with self.assertRaisesRegex(ValueError,'Feature extractor changed'):
+                ModelProvider(artifact)

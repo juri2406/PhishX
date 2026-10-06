@@ -64,10 +64,15 @@ def normalize_url(value: str) -> NormalizedURL:
             raise InvalidURL("Use a fully qualified hostname or an IP address.")
         extracted = _EXTRACT(ascii_host) if not is_ip else None
         # Unknown suffixes use the final two labels for grouping; documented limitation.
-        if extracted and extracted.suffix:
+        if extracted and extracted.suffix and extracted.domain:
             registered = extracted.top_domain_under_public_suffix
             domain_label = idna.decode(extracted.domain)
             subdomain = extracted.subdomain; suffix = extracted.suffix
+        elif extracted and extracted.suffix:
+            # The host itself is a PSL suffix (e.g. s3.amazonaws.com).
+            # Path-hosted URLs are valid; conservatively group the entire host.
+            registered = ascii_host; domain_label = idna.decode(ascii_host.split('.')[0])
+            subdomain = ''; suffix = extracted.suffix
         elif not is_ip:
             labels = ascii_host.split('.')
             registered = '.'.join(labels[-2:]); domain_label = idna.decode(labels[-2])
