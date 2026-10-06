@@ -111,3 +111,6 @@ Run the VS Code task `PhishX model backend` for local review. Use the committed
 reproduction guide to rebuild the model on a teammate's machine. Binaries and
 raw records remain outside Git. The aggregate report records source attribution,
 checksums, synthetic-family counts and known failures.
+
+See [receiving the model](model-handoff.md) for the prepared ZIP contents,
+checksum verification, destination path, and VS Code startup steps.

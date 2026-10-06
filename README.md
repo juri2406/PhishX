@@ -178,3 +178,7 @@ The corrected baseline and its fresh 4,000-record evaluation are documented in
 source. Known navigation-path false alarms remain; the model is experimental.
 VS Code's model-backend task points to the corrected local artifact in
 `artifacts/uci-run03/`. Data and weights are not committed.
+
+For the prepared model ZIP, file placement, checksum, and teammate setup, follow
+[the model handoff instructions](docs/model-handoff.md). The ZIP is transferred
+separately; cloning the repository does not include the model.
