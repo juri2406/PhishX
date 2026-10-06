@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Low sample UI-to-API result passed",
+    "High sample UI-to-API result passed",
+    "Synthetic lookalike UI-to-API result passed",
+    "Encoded sample UI-to-API result passed",
+    "Malformed scheme error displayed"
+  ],
+  "mobile_horizontal_overflow": false,
+  "browser_errors": []
+}

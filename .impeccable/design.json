@@ -1,0 +1,511 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T14:28:01.4988100Z",
+  "title": "Design System: PhishX",
+  "extensions": {
+    "motion": [
+      {
+        "purpose": "Enabled only when reduced motion is not requested.",
+        "name": "button-background",
+        "value": "background-color .15s ease-out"
+      },
+      {
+        "purpose": "Clip-path inset(0 0 8% 0) to inset(0); omitted for reduced motion.",
+        "name": "result-reveal",
+        "value": "reveal .25s ease-out"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "760px"
+      }
+    ],
+    "colorMeta": {
+      "primary": {
+        "tonalRamp": [
+          "oklch(15% 0.07 145)",
+          "oklch(27% 0.07 145)",
+          "oklch(39% 0.07 145)",
+          "oklch(51% 0.07 145)",
+          "oklch(63% 0.07 145)",
+          "oklch(75% 0.07 145)",
+          "oklch(87% 0.07 145)",
+          "oklch(95% 0.07 145)"
+        ],
+        "displayName": "primary",
+        "role": "primary"
+      },
+      "primary-hover": {
+        "tonalRamp": [
+          "oklch(15% 0.07 145)",
+          "oklch(27% 0.07 145)",
+          "oklch(39% 0.07 145)",
+          "oklch(51% 0.07 145)",
+          "oklch(63% 0.07 145)",
+          "oklch(75% 0.07 145)",
+          "oklch(87% 0.07 145)",
+          "oklch(95% 0.07 145)"
+        ],
+        "displayName": "primary hover",
+        "role": "primary"
+      },
+      "background": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "background",
+        "role": "neutral"
+      },
+      "foreground": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "foreground",
+        "role": "neutral"
+      },
+      "surface": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "surface",
+        "role": "neutral"
+      },
+      "border": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "border",
+        "role": "neutral"
+      },
+      "muted": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "muted",
+        "role": "neutral"
+      },
+      "supporting-text": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "supporting text",
+        "role": "neutral"
+      },
+      "focus": {
+        "tonalRamp": [
+          "oklch(15% 0.06 85)",
+          "oklch(27% 0.06 85)",
+          "oklch(39% 0.06 85)",
+          "oklch(51% 0.06 85)",
+          "oklch(63% 0.06 85)",
+          "oklch(75% 0.06 85)",
+          "oklch(87% 0.06 85)",
+          "oklch(95% 0.06 85)"
+        ],
+        "displayName": "focus",
+        "role": "semantic"
+      },
+      "input-background": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "input background",
+        "role": "neutral"
+      },
+      "input-border": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "input border",
+        "role": "neutral"
+      },
+      "placeholder": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "placeholder",
+        "role": "neutral"
+      },
+      "badge-background": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "badge background",
+        "role": "neutral"
+      },
+      "badge-text": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "badge text",
+        "role": "neutral"
+      },
+      "notice-background": {
+        "tonalRamp": [
+          "oklch(15% 0.06 85)",
+          "oklch(27% 0.06 85)",
+          "oklch(39% 0.06 85)",
+          "oklch(51% 0.06 85)",
+          "oklch(63% 0.06 85)",
+          "oklch(75% 0.06 85)",
+          "oklch(87% 0.06 85)",
+          "oklch(95% 0.06 85)"
+        ],
+        "displayName": "notice background",
+        "role": "semantic"
+      },
+      "notice-text": {
+        "tonalRamp": [
+          "oklch(15% 0.06 85)",
+          "oklch(27% 0.06 85)",
+          "oklch(39% 0.06 85)",
+          "oklch(51% 0.06 85)",
+          "oklch(63% 0.06 85)",
+          "oklch(75% 0.06 85)",
+          "oklch(87% 0.06 85)",
+          "oklch(95% 0.06 85)"
+        ],
+        "displayName": "notice text",
+        "role": "semantic"
+      },
+      "example-background": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "example background",
+        "role": "neutral"
+      },
+      "example-border": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "example border",
+        "role": "neutral"
+      },
+      "example-hover": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "example hover",
+        "role": "neutral"
+      },
+      "divider": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "divider",
+        "role": "neutral"
+      },
+      "code-background": {
+        "tonalRamp": [
+          "oklch(15% 0.025 145)",
+          "oklch(27% 0.025 145)",
+          "oklch(39% 0.025 145)",
+          "oklch(51% 0.025 145)",
+          "oklch(63% 0.025 145)",
+          "oklch(75% 0.025 145)",
+          "oklch(87% 0.025 145)",
+          "oklch(95% 0.025 145)"
+        ],
+        "displayName": "code background",
+        "role": "neutral"
+      },
+      "error": {
+        "tonalRamp": [
+          "oklch(15% 0.1 25)",
+          "oklch(27% 0.1 25)",
+          "oklch(39% 0.1 25)",
+          "oklch(51% 0.1 25)",
+          "oklch(63% 0.1 25)",
+          "oklch(75% 0.1 25)",
+          "oklch(87% 0.1 25)",
+          "oklch(95% 0.1 25)"
+        ],
+        "displayName": "error",
+        "role": "semantic"
+      },
+      "error-background": {
+        "tonalRamp": [
+          "oklch(15% 0.1 25)",
+          "oklch(27% 0.1 25)",
+          "oklch(39% 0.1 25)",
+          "oklch(51% 0.1 25)",
+          "oklch(63% 0.1 25)",
+          "oklch(75% 0.1 25)",
+          "oklch(87% 0.1 25)",
+          "oklch(95% 0.1 25)"
+        ],
+        "displayName": "error background",
+        "role": "semantic"
+      },
+      "risk-low": {
+        "tonalRamp": [
+          "oklch(15% 0.07 145)",
+          "oklch(27% 0.07 145)",
+          "oklch(39% 0.07 145)",
+          "oklch(51% 0.07 145)",
+          "oklch(63% 0.07 145)",
+          "oklch(75% 0.07 145)",
+          "oklch(87% 0.07 145)",
+          "oklch(95% 0.07 145)"
+        ],
+        "displayName": "risk low",
+        "role": "semantic"
+      },
+      "risk-medium": {
+        "tonalRamp": [
+          "oklch(15% 0.06 85)",
+          "oklch(27% 0.06 85)",
+          "oklch(39% 0.06 85)",
+          "oklch(51% 0.06 85)",
+          "oklch(63% 0.06 85)",
+          "oklch(75% 0.06 85)",
+          "oklch(87% 0.06 85)",
+          "oklch(95% 0.06 85)"
+        ],
+        "displayName": "risk medium",
+        "role": "semantic"
+      },
+      "risk-high": {
+        "tonalRamp": [
+          "oklch(15% 0.06 85)",
+          "oklch(27% 0.06 85)",
+          "oklch(39% 0.06 85)",
+          "oklch(51% 0.06 85)",
+          "oklch(63% 0.06 85)",
+          "oklch(75% 0.06 85)",
+          "oklch(87% 0.06 85)",
+          "oklch(95% 0.06 85)"
+        ],
+        "displayName": "risk high",
+        "role": "semantic"
+      },
+      "risk-critical": {
+        "tonalRamp": [
+          "oklch(15% 0.1 25)",
+          "oklch(27% 0.1 25)",
+          "oklch(39% 0.1 25)",
+          "oklch(51% 0.1 25)",
+          "oklch(63% 0.1 25)",
+          "oklch(75% 0.1 25)",
+          "oklch(87% 0.1 25)",
+          "oklch(95% 0.1 25)"
+        ],
+        "displayName": "risk critical",
+        "role": "semantic"
+      }
+    },
+    "typographyMeta": {
+      "mono": {
+        "purpose": "Hosts, contribution values and raw response data.",
+        "displayName": "Evidence monospace"
+      },
+      "display": {
+        "purpose": "Primary task heading only.",
+        "displayName": "Task heading"
+      }
+    },
+    "shadows": []
+  },
+  "components": [
+    {
+      "css": ".ds-primary{display:flex;align-items:center;justify-content:space-between;background:#234e37;color:#fff;border:0;border-radius:6px;padding:12px 18px;width:100%;font:600 16px/1.6 'Segoe UI',sans-serif;cursor:pointer}.ds-primary:hover:not(:disabled){background:#153b29}.ds-primary:focus-visible{outline:3px solid #a46520;outline-offset:4px}.ds-primary:disabled{opacity:.55;cursor:not-allowed}@media(prefers-reduced-motion:no-preference){.ds-primary{transition:background-color .15s ease-out}}",
+      "html": "<button class=\"ds-primary\">Analyze URL <span aria-hidden=\"true\">→</span></button>",
+      "refersTo": "button-primary",
+      "kind": "button",
+      "name": "Primary Button",
+      "description": "Full-width analyze action."
+    },
+    {
+      "css": ".ds-example{background:#eff3e8;color:#233b33;border:1px solid #d4ddca;border-radius:5px;padding:6px 10px;font:12px/1.6 'Segoe UI',sans-serif;cursor:pointer}.ds-example:hover{background:#dde8ce}.ds-example:focus-visible{outline:3px solid #a46520;outline-offset:4px}.ds-example:disabled{opacity:.55;cursor:not-allowed}@media(prefers-reduced-motion:no-preference){.ds-example{transition:background-color .15s ease-out}}",
+      "html": "<button class=\"ds-example\">Low sample</button>",
+      "refersTo": "button-example",
+      "kind": "button",
+      "name": "Example Button",
+      "description": "Compact fixture action."
+    },
+    {
+      "css": ".ds-label{display:block;font:650 14px/1.6 'Segoe UI',sans-serif;color:#233b33;margin:0 0 8px}.ds-input{width:100%;border:1px solid #8d9e91;border-radius:6px;padding:13px 14px;background:#fcfdf9;color:#233b33;font:16px/1.6 'Segoe UI',sans-serif;caret-color:#234e37}.ds-input::placeholder{color:#617366}.ds-input:focus-visible{outline:3px solid #a46520;outline-offset:4px}.ds-hint{font:13px/1.6 'Segoe UI',sans-serif;color:#55665c;margin:8px 0 18px}",
+      "html": "<label class=\"ds-label\" for=\"ds-url\">URL to analyze</label><input class=\"ds-input\" id=\"ds-url\" placeholder=\"https://example.com/\" aria-describedby=\"ds-hint\"><p class=\"ds-hint\" id=\"ds-hint\">Include http:// or https://. Maximum 2,048 characters.</p>",
+      "refersTo": "input",
+      "kind": "input",
+      "name": "URL Field",
+      "description": "Labeled URL text input with an external format hint."
+    },
+    {
+      "css": ".ds-scanner{background:#fff;color:#233b33;border:1px solid #c9d0c3;border-radius:14px;padding:28px;font:16px/1.6 'Segoe UI',sans-serif}.ds-scanner h2{font-size:21px;line-height:1.3;font-weight:650;margin:0 0 20px}.ds-scanner p{margin:0 0 16px}@media(max-width:760px){.ds-scanner{padding:22px}}",
+      "html": "<section class=\"ds-scanner\"><h2>URL scanner</h2><p>Enter a URL to analyze.</p></section>",
+      "refersTo": "scanner",
+      "kind": "card",
+      "name": "Scanner Panel",
+      "description": "Primary bounded task surface."
+    },
+    {
+      "kind": "nav",
+      "css": ".ds-brand{display:flex;align-items:center;gap:12px;color:#233b33;text-decoration:none;font:750 25px/1.6 'Segoe UI',sans-serif;letter-spacing:-.03em}.ds-brand:focus-visible{outline:3px solid #a46520;outline-offset:4px}",
+      "description": "Shield wordmark navigation.",
+      "name": "Home Link",
+      "html": "<a class=\"ds-brand\" href=\"#\" aria-label=\"PhishX home\"><svg width=\"28\" height=\"32\" viewBox=\"0 0 28 32\" fill=\"none\" aria-hidden=\"true\"><path d=\"M14 2 26 7v9c0 7-7 12-12 14C9 28 2 23 2 16V7Z\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"m8 16 4 4 8-9\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>PhishX</a>"
+    },
+    {
+      "css": ".ds-badge{font:13px/1.6 'Segoe UI',sans-serif;color:#43594f;background:#e4e9dc;padding:5px 12px;border-radius:30px}",
+      "html": "<span class=\"ds-badge\">Local prototype</span>",
+      "refersTo": "prototype-badge",
+      "kind": "chip",
+      "name": "Prototype Badge",
+      "description": "Noninteractive local-prototype label."
+    },
+    {
+      "css": ".ds-notice{background:#f2efd9;color:#5c4b23;padding:12px 15px;font:14px/1.6 'Segoe UI',sans-serif;margin-bottom:22px;border-radius:6px}",
+      "html": "<div class=\"ds-notice\">Fixture mode: the four examples return illustrative sample scores. They are not measured predictions.</div>",
+      "refersTo": "notice",
+      "kind": "custom",
+      "name": "Fixture Notice",
+      "description": "Persistent qualification near the form."
+    }
+  ],
+  "narrative": {
+    "dos": [
+      "Do preserve the serif task heading and sans-serif controls.",
+      "Do retain visible focus outlines and written status labels.",
+      "Do stack task, scope, and results in their existing reading order on mobile.",
+      "Do keep fixture notices and score qualification close to the relevant action or result."
+    ],
+    "overview": "The implemented direction is a functional light workspace with a green primary action, a serif task heading, and readable system sans text. The form carries the action; quieter supporting content explains its scope and the results carry the evidence. This name describes the established direction rather than claiming a separate brand workshop.\n\nThe system uses compact controls inside a generous page rhythm. Notices and textual status labels keep prototype and fixture limitations visible. No external fonts or brand imagery are required.",
+    "northStar": "The Calm Scanner Workspace",
+    "keyCharacteristics": [
+      "Calm light surfaces and dark green action emphasis.",
+      "Serif task heading paired with system sans interface text.",
+      "Bordered, flat containers and visible keyboard focus.",
+      "Explicit result labels and a mobile reading order that follows the task."
+    ],
+    "rules": [
+      {
+        "section": "colors",
+        "name": "The Labeled State Rule",
+        "body": "Color accompanies a written state or risk label; it never carries the meaning alone."
+      },
+      {
+        "section": "typography",
+        "name": "The Task Heading Rule",
+        "body": "Reserve the serif display treatment for the primary task heading; use sans-serif for controls and evidence headings."
+      },
+      {
+        "section": "elevation",
+        "name": "The Flat Surface Rule",
+        "body": "Preserve tonal separation and borders as the depth vocabulary."
+      }
+    ],
+    "donts": [
+      "Don't use color as the only signal for risk, error, or readiness.",
+      "Don't add shadow-driven card depth to this flat workspace without revisiting the visual direction.",
+      "Don't style fixture scores as verified predictions."
+    ]
+  }
+}

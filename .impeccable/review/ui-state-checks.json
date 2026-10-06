@@ -1,0 +1,9 @@
+{
+  "note": "Browser route mocks only; not model acceptance evidence.",
+  "checks": [
+    "Loading disables form",
+    "Model contribution and observed signal displayed separately",
+    "Uncalibrated model score qualification visible",
+    "Network failure shows error"
+  ]
+}
