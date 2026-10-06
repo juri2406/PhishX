@@ -4,7 +4,7 @@ The trained model is shared separately from Git. Ask Person 1 for
 `PhishX_model_handoff.zip`, prepared locally at
 `artifacts/handoff/PhishX_model_handoff.zip`.
 
-1. Pull `codex/person1` from this repository.
+1. Pull `gauri` from this repository.
 2. Extract the archive into the repository root. The model must land at
    `artifacts/uci-run03/classical.joblib`.
 3. Follow [the VS Code setup guide](person1-vscode.md) to create the environment
