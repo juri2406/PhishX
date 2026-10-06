@@ -150,3 +150,11 @@ build does not carry the development proxy; hosting remains outside this task.
 Implementation references: [FastAPI lifespan testing](https://fastapi.tiangolo.com/advanced/testing-events/) and [SHAP TreeExplainer](https://shap.readthedocs.io/en/latest/generated/shap.TreeExplainer.html).
 
 To reproduce the exact verified Python environment, install `backend/requirements-verified.txt` in a fresh virtual environment. It includes optional SHAP dependencies.
+
+## Person 1 implementation
+
+The shared detection package now lives in `ml/phishx/`. See
+[Person 1 setup](docs/person1-setup.md) for installation, dataset preparation,
+training and CLI commands, and [progress](docs/person1_progress.md) for remaining
+real-data and robustness work. The shared parser uses the agreed 2048-character
+limit. Raw datasets and model outputs stay outside Git.

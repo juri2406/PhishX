@@ -1,0 +1,8 @@
+{
+  "paypal": ["paypal.com"], "google": ["google.com"],
+  "microsoft": ["microsoft.com", "live.com", "office.com"],
+  "apple": ["apple.com", "icloud.com"], "amazon": ["amazon.com", "amazon.in", "amazon.co.uk"],
+  "facebook": ["facebook.com"], "instagram": ["instagram.com"],
+  "netflix": ["netflix.com"], "github": ["github.com"], "dropbox": ["dropbox.com"],
+  "linkedin": ["linkedin.com"], "adobe": ["adobe.com"]
+}

@@ -10,3 +10,7 @@ data/raw/
 artifacts/
 work/
 .pnpm-store/
+*.egg-info/
+*.pyc
+.DS_Store
+data/processed/

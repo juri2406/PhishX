@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phishx"
+version = "0.1.0"
+description = "Offline URL features, Unicode brand matching and a classical phishing baseline"
+requires-python = ">=3.10"
+dependencies = ["scikit-learn>=1.5,<2", "joblib>=1.4,<2", "idna>=3.7,<4", "tldextract>=5.1,<6"]
+
+[project.scripts]
+phishx = "phishx.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["ml"]
+
+[tool.setuptools.package-data]
+phishx = ["resources/*.txt", "resources/*.json"]

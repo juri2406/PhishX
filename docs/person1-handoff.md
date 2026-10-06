@@ -57,3 +57,23 @@ Acceptance: run genuine benign, phishing and Unicode samples through the shared
 parser; verify feature order, predicted phishing-class probability, SHAP class,
 scale and additivity. Check explanation failures and malformed input. Rerun
 latency measurements in model mode. Preserve results with model version.
+
+## Initial Person 1 package
+
+Install the repository package with `python -m pip install -e .`.
+The shared parser is `phishx.normalize_url` and extraction is
+`phishx.analyze_url`. `FEATURE_NAMES` defines 18 numeric features in order.
+No missing values are produced: unavailable live signals are excluded from the
+model. The starter estimator is a random forest, selected on validation F1.
+Class 0 is benign and class 1 is phishing, with the class index read explicitly.
+Probability remains uncalibrated. Unicode mapping version is 16.0.0 and brand
+resources carry checksums in the exported bundle. The parser permits bare
+hostnames for CLI/data import, while the existing HTTP API requires a scheme.
+
+Use `PHISHX_PROVIDER=ml.integration:create_provider` and set `PHISHX_MODEL_PATH`
+to a trusted local `classical.joblib` file. The factory validates schema and
+resource hashes, loads the estimator once, and returns the exact feature row in
+Prediction.context. It attempts the existing TreeShapAdapter with probability
+scale and phishing label 1. If SHAP initialization fails, prediction still works
+and explanations explicitly fail as unavailable through the backend contract.
+A real trained artifact and held-out evaluation are still pending dataset intake.
