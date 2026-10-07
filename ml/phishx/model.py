@@ -32,7 +32,15 @@ def load_bundle(artifact):
     bundle = joblib.load(artifact)  # Trusted local files only.
     if bundle.get('extractor_hashes') != extractor_hashes():
         raise ValueError('Feature extractor changed. Retrain the artifact before inference.')
-    if bundle['feature_names'] != list(FEATURE_NAMES):
+    expected_names = FEATURE_NAMES
+    if bundle.get('feature_profile') == 'extended-v1':
+        from .extended_features import EXTENDED_FEATURE_NAMES, extended_hashes
+        expected_names = EXTENDED_FEATURE_NAMES
+        if bundle.get('extended_extractor_hashes') != extended_hashes():
+            raise ValueError('Extended feature extractor changed. Retrain the artifact.')
+    elif bundle.get('feature_profile', 'lexical-v1') != 'lexical-v1':
+        raise ValueError('Unknown feature profile.')
+    if bundle['feature_names'] != list(expected_names):
         raise ValueError('Model feature schema mismatch.')
     if bundle['resource_hashes'] != resource_hashes():
         raise ValueError('Model resource version mismatch. Retrain the model.')
@@ -139,8 +147,12 @@ def train(split_dir, output_dir):
 
 def predict(url, artifact):
     bundle=load_bundle(artifact)
-    analysis=analyze_url(url); model=bundle['model']
-    probability=float(model.predict_proba([[analysis['features'][key] for key in FEATURE_NAMES]])[0,1])
+    analyze = analyze_url
+    if bundle.get('feature_profile') == 'extended-v1':
+        from .extended_features import analyze_extended
+        analyze = analyze_extended
+    analysis=analyze(url); model=bundle['model']
+    probability=float(model.predict_proba([[analysis['features'][key] for key in bundle['feature_names']]])[0,1])
     score=round(100*probability)
     return dict(**analysis,phishing_probability=probability,risk_score=score,
                 risk_level='Low' if score<=30 else 'Medium' if score<=60 else 'High' if score<=80 else 'Critical',

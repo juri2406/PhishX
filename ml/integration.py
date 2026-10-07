@@ -10,6 +10,11 @@ class ModelProvider:
 
     def __init__(self, path):
         bundle = load_bundle(path)
+        self.feature_names = bundle['feature_names']
+        self.analyze = analyze_url
+        if bundle.get('feature_profile') == 'extended-v1':
+            from phishx.extended_features import analyze_extended
+            self.analyze = analyze_extended
         self.calibrated = bundle.get('probability_calibrated', False)
         self.model = bundle['model']
         if list(self.model.classes_) != [0, 1]:
@@ -20,18 +25,18 @@ class ModelProvider:
         self.explanation_error = None
         try:
             from backend.app.shap_adapter import TreeShapAdapter
-            self.adapter = TreeShapAdapter(self.model, list(FEATURE_NAMES), 1, 'probability',
+            self.adapter = TreeShapAdapter(self.model, self.feature_names, 1, 'probability',
                 lambda row: self.model.predict_proba(row)[0, self.index], {})
         except Exception as exc:
             self.explanation_error = type(exc).__name__
 
     def predict(self, url):
         try:
-            analysis = analyze_url(url)
+            analysis = self.analyze(url)
         except ParseError as exc:
             raise InvalidURL(str(exc)) from exc
         features = analysis['features']
-        row = [[features[name] for name in FEATURE_NAMES]]
+        row = [[features[name] for name in self.feature_names]]
         probability = float(self.model.predict_proba(row)[0, self.index])
         match = analysis['brand_match']
         signals = [Signal(name=name, value=float(value), description='Observed '+name.replace('_',' ')) for name,value in features.items()]

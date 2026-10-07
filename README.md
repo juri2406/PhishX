@@ -3,12 +3,42 @@
 The shared Person 1 detection package and Person 2 application are integrated:
 FastAPI, React, Vite, Tailwind, the frozen classical model, and verified SHAP
 explanations. Person 2's local milestone acceptance is complete; the overall
-60% milestone is not claimed because model research and independent review
-remain outstanding.
+60% milestone is not claimed because Person 3’s independent review
+remains outstanding. Person 1’s classical research deliverables are complete
+with explicit experimental-model limitations.
 
 Start with the [real-model demo guide](docs/person2-demo-guide.md) and the
 [Person 2 acceptance report](docs/person2-acceptance.md). Model binaries are
 supplied separately through the trusted handoff.
+
+
+## Revised frozen classical model — 7 October 2026
+
+The new local review model is `artifacts/revised-run06/classical.joblib`, version
+`rf-v6-d5923fe7d93e-20261007`, SHA256
+`a5a68744712975f0f5809dd6f13825eeb47dc4251153f3f65eadc2120727d3ed`.
+Its `extended-v1` profile has 24 numeric features: the original ordered 18 plus
+`host_digit_count`, `path_digit_fraction`, `path_segment_count`, `path_entropy`,
+`government_suffix`, and `known_brand_domain`. It calls the same base parser
+and extractor, then adds signals; no legitimate-domain verdict override exists.
+The bundle also requires the extended extractor hash. Missing, stale, reordered
+or unknown profiles are rejected. Older 18-feature bundles remain supported.
+
+Labels remain 0 benign / 1 phishing. The 150-tree forest returns raw class-1
+probability, `calibrated=false`. Sigmoid/isotonic were fitted/reviewed separately
+but are not served. Provider and SHAP use the bundle's ordered feature schema
+and store the exact row in Prediction.context. Class 1, probability-scale SHAP
+and additivity passed on 20 final URLs. API fields and risk bands are unchanged.
+
+See [run06 evaluation](docs/evaluation-run06.md) and
+[the reproduction workflow](docs/person1-revised-workflow.md). The final 1,698-row
+external-source sample measured 90.81% accuracy, 90% recall and 5.79% FPR.
+The GitHub repository control still scores 55 and remains a known false positive.
+This experimental model does not establish deployment calibration or universal
+detection. Person 3's independent acceptance remains pending.
+
+The historical run03 instructions below remain valid for the earlier artifact;
+use the revised model handoff instructions for run06.
 
 ## Run the demo on Windows
 
@@ -65,8 +95,9 @@ Implemented independently:
 - API tests, synthetic SHAP unit checks, latency recorder and handoff templates.
 
 Person 1's parser, features, skeleton matching, trained artifact and SHAP
-compatibility are supplied. Remaining model work concerns representative data,
-known false alarms, calibration review and independent final evaluation.
+compatibility are supplied. The revised model adds broader source coverage, a separate calibration review
+and untouched final evaluation. Representative coverage and known false alarms
+remain research limitations; see the run06 report.
 Person 3's independently sourced fixture/review remains separate from the
 recorded Person 2 developer acceptance pass.
 
@@ -81,6 +112,7 @@ model or deserializes arbitrary uploaded files.
 .\.venv\Scripts\python.exe -m pip install -r backend/requirements-model.txt
 $env:PHISHX_MODE = "model"
 $env:PHISHX_PROVIDER = "ml.integration:create_provider"  # Existing shared provider
+$env:PHISHX_MODEL_PATH = "$PWD\artifacts\revised-run06\classical.joblib"
 .\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 
@@ -163,7 +195,7 @@ training and CLI commands, and [progress](docs/person1_progress.md) for remainin
 real-data and robustness work. The shared parser uses the agreed 2048-character
 limit. Raw datasets and model outputs stay outside Git.
 
-## VS Code and real data evaluation
+## Earlier UCI evaluation (historical)
 
 VS Code tasks and a backend debug configuration are available in `.vscode/`.
 Follow [the VS Code guide](docs/person1-vscode.md) to reproduce the UCI import,
@@ -200,7 +232,7 @@ the optional SHAP dependencies from backend/requirements-model.txt. From the
 repository root, launch the real backend with:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/start-model.ps1
+powershell -ExecutionPolicy Bypass -File scripts/start-model.ps1 -ModelRun uci-run03
 ```
 
 Stop any existing backend on port 8000 first. This launcher verifies the handed

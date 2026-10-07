@@ -18,7 +18,7 @@
       "env": {
         "PHISHX_MODE": "model",
         "PHISHX_PROVIDER": "ml.integration:create_provider",
-        "PHISHX_MODEL_PATH": "${workspaceFolder}/artifacts/uci-run03/classical.joblib",
+        "PHISHX_MODEL_PATH": "${workspaceFolder}/artifacts/revised-run06/classical.joblib",
         "PYTHONPATH": "${workspaceFolder}/ml"
       }
     }

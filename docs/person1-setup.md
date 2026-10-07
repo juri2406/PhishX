@@ -1,3 +1,9 @@
+> Current review model: run06, 24-feature extended profile. Receive the trusted
+> [revised handoff](model-handoff.md), use the default **PhishX model backend**
+> VS Code task, and follow [the revised workflow](person1-revised-workflow.md)
+> for new-source training. The older UCI training commands below retain the
+> 18-feature baseline for historical reproduction.
+
 # PhishX
 
 Person 1's initial implementation: offline URL normalization, lexical and structural features, Unicode skeleton brand matching, dataset cleaning, domain-separated splits, classical model training, evaluation, and an inference wrapper.

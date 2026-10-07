@@ -37,7 +37,7 @@ def verify(api, model, output, test_csv=None):
         for label in ('0', '1'):
             selected = [row for row in rows if row['label'] == label][:6]
             assert len(selected) == 6, 'Need six held-out rows per class'
-            cases.extend((f'uci-{label}-{i+1}', row['url'])
+            cases.extend((f'heldout-{label}-{i+1}', row['url'])
                          for i, row in enumerate(selected))
     else:
         cases.extend([('official-domain', 'https://github.com/'),

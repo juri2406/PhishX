@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import './style.css';
-import evaluationReportUrl from '../../docs/evaluation-run03.md?url';
+import evaluationReportUrl from '../../docs/evaluation-run06.md?url';
 
 const examples = [
   ['Low sample', 'https://example.com/'],

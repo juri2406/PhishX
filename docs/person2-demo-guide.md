@@ -1,3 +1,13 @@
+# Revised model note — 7 October 2026
+
+The default VS Code/model PowerShell launcher now selects run06. Receive
+`PhishX_model_handoff_v6.zip` and follow [the current handoff](model-handoff.md).
+The browser acceptance cases/screenshots below were recorded with run03 and
+remain evidence for that version. Current model API/SHAP/latency checks are
+in `evidence/person1/`; review [run06](evaluation-run06.md) for current metrics
+and known errors. To reproduce the old demo use `-ModelRun uci-run03` or set
+`PHISHX_MODEL_PATH` explicitly to the old artifact.
+
 # Running the real-model demo
 
 Open the repository folder in VS Code. Follow [the model handoff](model-handoff.md)

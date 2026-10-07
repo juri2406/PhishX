@@ -1,3 +1,31 @@
+# Current Person 1 status — 7 October 2026
+
+The **classical-path deliverables in the 60% plan are implemented and measured**.
+This does not complete future Person 1 Char-CNN/cascade, live signals or final
+deployment research, and does not claim the overall 60% acceptance. Person 3's
+independent fixture/review is still outstanding.
+
+| Plan deliverable | Evidence |
+|---|---|
+| Data/provenance/cleaning and reproducible groups | Revised workflow and frozen manifest in evidence/person1/revised-model-results.json |
+| Shared parser and numeric feature schema | Base 18 plus versioned 24-feature extension; compatibility and parser tests |
+| Unicode skeleton and starter brands | Unicode 16 map; 12 brands, 17 domains, 70 reviewed checks |
+| Frozen classical model and inference wrapper | Run06 checksum and trusted local handoff; backend uses the same extractor |
+| Validation selection and real held-out metrics | 1,698 untouched final records; full metrics and confusion matrix |
+| Calibration review | Separate fitting/review partitions; raw, sigmoid, isotonic measured; output remains uncalibrated |
+| Initial manipulation evaluation | 200 pairs each for three families, after artifact freeze; no generated augmentation |
+| Integration support | 20 held-out API/SHAP checks; feature order, class 1, probability scale/additivity, malformed and Unicode checks |
+
+Accuracy 90.81%, phishing recall 90%, precision 98.48%, F1 94.05%, FPR 5.79%.
+The GitHub repository path still scores 55, a known false positive. Eight benign
+final domains and source-based labels limit generalization. These are disclosed
+limitations of an experimental baseline, not resolved detection guarantees.
+
+Validation: 51 tests and 11 subtests pass, no skipped tests; frontend production
+build passes. See [evaluation-run06.md](evaluation-run06.md),
+[person1-revised-workflow.md](person1-revised-workflow.md) and
+[model-handoff.md](model-handoff.md). The following sections retain earlier history.
+
 # Person 1 progress
 
 ## Implemented
@@ -10,7 +38,7 @@
 - Inference wrapper with feature/resource compatibility checks.
 - Automated parser and synthetic pipeline checks.
 
-## Remaining before milestone completion
+## Previous research backlog (superseded by the 7 October evidence)
 
 1. Add independently reviewed benign navigation URLs and an independent recent
    phishing source. Known PayPal/GitHub paths still produce false alarms.

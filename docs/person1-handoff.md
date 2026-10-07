@@ -1,5 +1,34 @@
 # Person 1 → Person 2 handoff
 
+## Revised frozen classical model — 7 October 2026
+
+The new local review model is `artifacts/revised-run06/classical.joblib`, version
+`rf-v6-d5923fe7d93e-20261007`, SHA256
+`a5a68744712975f0f5809dd6f13825eeb47dc4251153f3f65eadc2120727d3ed`.
+Its `extended-v1` profile has 24 numeric features: the original ordered 18 plus
+`host_digit_count`, `path_digit_fraction`, `path_segment_count`, `path_entropy`,
+`government_suffix`, and `known_brand_domain`. It calls the same base parser
+and extractor, then adds signals; no legitimate-domain verdict override exists.
+The bundle also requires the extended extractor hash. Missing, stale, reordered
+or unknown profiles are rejected. Older 18-feature bundles remain supported.
+
+Labels remain 0 benign / 1 phishing. The 150-tree forest returns raw class-1
+probability, `calibrated=false`. Sigmoid/isotonic were fitted/reviewed separately
+but are not served. Provider and SHAP use the bundle's ordered feature schema
+and store the exact row in Prediction.context. Class 1, probability-scale SHAP
+and additivity passed on 20 final URLs. API fields and risk bands are unchanged.
+
+See [run06 evaluation](evaluation-run06.md) and
+[the reproduction workflow](person1-revised-workflow.md). The final 1,698-row
+external-source sample measured 90.81% accuracy, 90% recall and 5.79% FPR.
+The GitHub repository control still scores 55 and remains a known false positive.
+This experimental model does not establish deployment calibration or universal
+detection. Person 3's independent acceptance remains pending.
+
+The historical run03 instructions below remain valid for the earlier artifact;
+use the revised model handoff instructions for run06.
+
+
 No input from Person 1 is needed to run fixture mode. The real integration needs:
 
 | Item | Required details |
@@ -128,7 +157,7 @@ the optional SHAP dependencies from backend/requirements-model.txt. From the
 repository root, launch the real backend with:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/start-model.ps1
+powershell -ExecutionPolicy Bypass -File scripts/start-model.ps1 -ModelRun uci-run03
 ```
 
 Stop any existing backend on port 8000 first. This launcher verifies the handed

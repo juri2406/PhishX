@@ -1,0 +1,235 @@
+{
+  "model_version": "rf-v6-d5923fe7d93e-20261007",
+  "model_sha256": "a5a68744712975f0f5809dd6f13825eeb47dc4251153f3f65eadc2120727d3ed",
+  "test_csv_sha256": "1351708e96d32c5f8bff2a86ac5bfdb2dd740939028da4278b093a78041c5055",
+  "real_heldout_urls_checked": 20,
+  "checks": [
+    {
+      "label": 0,
+      "risk_score": 29,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 39.908,
+        "explanation": 15.064,
+        "total": 54.973
+      },
+      "in_process_request_ms": 56.99550000099407
+    },
+    {
+      "label": 0,
+      "risk_score": 29,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.297,
+        "explanation": 14.113,
+        "total": 27.411
+      },
+      "in_process_request_ms": 28.14424999996845
+    },
+    {
+      "label": 0,
+      "risk_score": 11,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.746,
+        "explanation": 14.255,
+        "total": 28.001
+      },
+      "in_process_request_ms": 28.60162499928265
+    },
+    {
+      "label": 0,
+      "risk_score": 29,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.779,
+        "explanation": 13.924,
+        "total": 27.702
+      },
+      "in_process_request_ms": 28.25908399972832
+    },
+    {
+      "label": 0,
+      "risk_score": 24,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.43,
+        "explanation": 14.075,
+        "total": 27.505
+      },
+      "in_process_request_ms": 28.021750000334578
+    },
+    {
+      "label": 0,
+      "risk_score": 25,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.777,
+        "explanation": 13.929,
+        "total": 27.707
+      },
+      "in_process_request_ms": 28.196707999086357
+    },
+    {
+      "label": 0,
+      "risk_score": 26,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.694,
+        "explanation": 14.271,
+        "total": 27.965
+      },
+      "in_process_request_ms": 28.455375000703498
+    },
+    {
+      "label": 0,
+      "risk_score": 25,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.255,
+        "explanation": 27.274,
+        "total": 40.529
+      },
+      "in_process_request_ms": 41.181917000358226
+    },
+    {
+      "label": 0,
+      "risk_score": 24,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 14.098,
+        "explanation": 14.301,
+        "total": 28.399
+      },
+      "in_process_request_ms": 29.0313330006029
+    },
+    {
+      "label": 0,
+      "risk_score": 28,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.156,
+        "explanation": 14.447,
+        "total": 27.604
+      },
+      "in_process_request_ms": 28.178791999380337
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 14.042,
+        "explanation": 14.447,
+        "total": 28.489
+      },
+      "in_process_request_ms": 29.066834000332165
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.326,
+        "explanation": 14.247,
+        "total": 27.572
+      },
+      "in_process_request_ms": 28.12850000009348
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.885,
+        "explanation": 13.455,
+        "total": 27.339
+      },
+      "in_process_request_ms": 27.879125000254135
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.847,
+        "explanation": 14.376,
+        "total": 28.222
+      },
+      "in_process_request_ms": 28.735750000123517
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.863,
+        "explanation": 13.984,
+        "total": 27.847
+      },
+      "in_process_request_ms": 28.367042001264053
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.576,
+        "explanation": 14.283,
+        "total": 27.859
+      },
+      "in_process_request_ms": 28.36924999974144
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.547,
+        "explanation": 14.527,
+        "total": 28.074
+      },
+      "in_process_request_ms": 28.650500000367174
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.836,
+        "explanation": 14.361,
+        "total": 28.198
+      },
+      "in_process_request_ms": 28.77654099938809
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 13.842,
+        "explanation": 14.035,
+        "total": 27.877
+      },
+      "in_process_request_ms": 28.400707999026054
+    },
+    {
+      "label": 1,
+      "risk_score": 100,
+      "explanation_items": 3,
+      "api_timings_ms": {
+        "inference": 14.145,
+        "explanation": 14.332,
+        "total": 28.477
+      },
+      "in_process_request_ms": 28.973084001336247
+    }
+  ],
+  "shap_class": 1,
+  "shap_scale": "probability",
+  "shap_additivity_checked": true,
+  "synthetic_unicode_contract_checked": true,
+  "invalid_url_checked": true,
+  "timing_scope": "FastAPI TestClient in-process; excludes network and deployment",
+  "note": "Checks API and explanations, not additional independent accuracy evidence."
+}

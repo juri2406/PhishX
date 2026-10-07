@@ -1,0 +1,775 @@
+{
+  "brands": 12,
+  "domains": 17,
+  "checks": [
+    {
+      "kind": "legitimate-domain",
+      "brand": "paypal",
+      "url": "https://paypal.com/login",
+      "match": {
+        "closest_brand": "paypal",
+        "distance": 0.0,
+        "candidate": "paypal",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "paypal",
+      "url": "https://www.paypal.com/account",
+      "match": {
+        "closest_brand": "paypal",
+        "distance": 0.0,
+        "candidate": "paypal",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "paypal",
+      "url": "https://p\u0430ypal.example/login",
+      "match": {
+        "closest_brand": "paypal",
+        "distance": 0.0,
+        "candidate": "p\u0430ypal",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "paypal",
+      "url": "https://paypal.attacker.example",
+      "match": {
+        "closest_brand": "paypal",
+        "distance": 0.0,
+        "candidate": "paypal",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "paypal",
+      "url": "https://unrelated.example/paypal",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "google",
+      "url": "https://google.com/login",
+      "match": {
+        "closest_brand": "google",
+        "distance": 0.0,
+        "candidate": "google",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "google",
+      "url": "https://www.google.com/account",
+      "match": {
+        "closest_brand": "google",
+        "distance": 0.0,
+        "candidate": "google",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "google",
+      "url": "https://googl\u0435.example/login",
+      "match": {
+        "closest_brand": "google",
+        "distance": 0.0,
+        "candidate": "googl\u0435",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "google",
+      "url": "https://google.attacker.example",
+      "match": {
+        "closest_brand": "google",
+        "distance": 0.0,
+        "candidate": "google",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "google",
+      "url": "https://unrelated.example/google",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "microsoft",
+      "url": "https://microsoft.com/login",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "microsoft",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "microsoft",
+      "url": "https://www.microsoft.com/account",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "microsoft",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "microsoft",
+      "url": "https://live.com/login",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "live",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "microsoft",
+      "url": "https://www.live.com/account",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "live",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "microsoft",
+      "url": "https://office.com/login",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "office",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "microsoft",
+      "url": "https://www.office.com/account",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "office",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "microsoft",
+      "url": "https://micr\u043esoft.example/login",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "micr\u043esoft",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "microsoft",
+      "url": "https://microsoft.attacker.example",
+      "match": {
+        "closest_brand": "microsoft",
+        "distance": 0.0,
+        "candidate": "microsoft",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "microsoft",
+      "url": "https://unrelated.example/microsoft",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "apple",
+      "url": "https://apple.com/login",
+      "match": {
+        "closest_brand": "apple",
+        "distance": 0.0,
+        "candidate": "apple",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "apple",
+      "url": "https://www.apple.com/account",
+      "match": {
+        "closest_brand": "apple",
+        "distance": 0.0,
+        "candidate": "apple",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "apple",
+      "url": "https://icloud.com/login",
+      "match": {
+        "closest_brand": "apple",
+        "distance": 0.0,
+        "candidate": "icloud",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "apple",
+      "url": "https://www.icloud.com/account",
+      "match": {
+        "closest_brand": "apple",
+        "distance": 0.0,
+        "candidate": "icloud",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "apple",
+      "url": "https://\u0430pple.example/login",
+      "match": {
+        "closest_brand": "apple",
+        "distance": 0.0,
+        "candidate": "\u0430pple",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "apple",
+      "url": "https://apple.attacker.example",
+      "match": {
+        "closest_brand": "apple",
+        "distance": 0.0,
+        "candidate": "apple",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "apple",
+      "url": "https://unrelated.example/apple",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "amazon",
+      "url": "https://amazon.com/login",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "amazon",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "amazon",
+      "url": "https://www.amazon.com/account",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "amazon",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "amazon",
+      "url": "https://amazon.in/login",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "amazon",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "amazon",
+      "url": "https://www.amazon.in/account",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "amazon",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "amazon",
+      "url": "https://amazon.co.uk/login",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "amazon",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "amazon",
+      "url": "https://www.amazon.co.uk/account",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "amazon",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "amazon",
+      "url": "https://\u0430mazon.example/login",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "\u0430mazon",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "amazon",
+      "url": "https://amazon.attacker.example",
+      "match": {
+        "closest_brand": "amazon",
+        "distance": 0.0,
+        "candidate": "amazon",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "amazon",
+      "url": "https://unrelated.example/amazon",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "facebook",
+      "url": "https://facebook.com/login",
+      "match": {
+        "closest_brand": "facebook",
+        "distance": 0.0,
+        "candidate": "facebook",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "facebook",
+      "url": "https://www.facebook.com/account",
+      "match": {
+        "closest_brand": "facebook",
+        "distance": 0.0,
+        "candidate": "facebook",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "facebook",
+      "url": "https://f\u0430cebook.example/login",
+      "match": {
+        "closest_brand": "facebook",
+        "distance": 0.0,
+        "candidate": "f\u0430cebook",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "facebook",
+      "url": "https://facebook.attacker.example",
+      "match": {
+        "closest_brand": "facebook",
+        "distance": 0.0,
+        "candidate": "facebook",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "facebook",
+      "url": "https://unrelated.example/facebook",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "instagram",
+      "url": "https://instagram.com/login",
+      "match": {
+        "closest_brand": "instagram",
+        "distance": 0.0,
+        "candidate": "instagram",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "instagram",
+      "url": "https://www.instagram.com/account",
+      "match": {
+        "closest_brand": "instagram",
+        "distance": 0.0,
+        "candidate": "instagram",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "instagram",
+      "url": "https://inst\u0430gram.example/login",
+      "match": {
+        "closest_brand": "instagram",
+        "distance": 0.0,
+        "candidate": "inst\u0430gram",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "instagram",
+      "url": "https://instagram.attacker.example",
+      "match": {
+        "closest_brand": "instagram",
+        "distance": 0.0,
+        "candidate": "instagram",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "instagram",
+      "url": "https://unrelated.example/instagram",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "netflix",
+      "url": "https://netflix.com/login",
+      "match": {
+        "closest_brand": "netflix",
+        "distance": 0.0,
+        "candidate": "netflix",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "netflix",
+      "url": "https://www.netflix.com/account",
+      "match": {
+        "closest_brand": "netflix",
+        "distance": 0.0,
+        "candidate": "netflix",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "netflix",
+      "url": "https://n\u0435tflix.example/login",
+      "match": {
+        "closest_brand": "netflix",
+        "distance": 0.0,
+        "candidate": "n\u0435tflix",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "netflix",
+      "url": "https://netflix.attacker.example",
+      "match": {
+        "closest_brand": "netflix",
+        "distance": 0.0,
+        "candidate": "netflix",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "netflix",
+      "url": "https://unrelated.example/netflix",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "github",
+      "url": "https://github.com/login",
+      "match": {
+        "closest_brand": "github",
+        "distance": 0.0,
+        "candidate": "github",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "github",
+      "url": "https://www.github.com/account",
+      "match": {
+        "closest_brand": "github",
+        "distance": 0.0,
+        "candidate": "github",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "github",
+      "url": "https://g\u0456thub.example/login",
+      "match": {
+        "closest_brand": "github",
+        "distance": 0.0,
+        "candidate": "g\u0456thub",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "github",
+      "url": "https://github.attacker.example",
+      "match": {
+        "closest_brand": "github",
+        "distance": 0.0,
+        "candidate": "github",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "github",
+      "url": "https://unrelated.example/github",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "dropbox",
+      "url": "https://dropbox.com/login",
+      "match": {
+        "closest_brand": "dropbox",
+        "distance": 0.0,
+        "candidate": "dropbox",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "dropbox",
+      "url": "https://www.dropbox.com/account",
+      "match": {
+        "closest_brand": "dropbox",
+        "distance": 0.0,
+        "candidate": "dropbox",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "dropbox",
+      "url": "https://dr\u043epbox.example/login",
+      "match": {
+        "closest_brand": "dropbox",
+        "distance": 0.0,
+        "candidate": "dr\u043epbox",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "dropbox",
+      "url": "https://dropbox.attacker.example",
+      "match": {
+        "closest_brand": "dropbox",
+        "distance": 0.0,
+        "candidate": "dropbox",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "dropbox",
+      "url": "https://unrelated.example/dropbox",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "linkedin",
+      "url": "https://linkedin.com/login",
+      "match": {
+        "closest_brand": "linkedin",
+        "distance": 0.0,
+        "candidate": "linkedin",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "linkedin",
+      "url": "https://www.linkedin.com/account",
+      "match": {
+        "closest_brand": "linkedin",
+        "distance": 0.0,
+        "candidate": "linkedin",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "linkedin",
+      "url": "https://link\u0435din.example/login",
+      "match": {
+        "closest_brand": "linkedin",
+        "distance": 0.0,
+        "candidate": "link\u0435din",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "linkedin",
+      "url": "https://linkedin.attacker.example",
+      "match": {
+        "closest_brand": "linkedin",
+        "distance": 0.0,
+        "candidate": "linkedin",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "linkedin",
+      "url": "https://unrelated.example/linkedin",
+      "impersonation_signal": false
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "adobe",
+      "url": "https://adobe.com/login",
+      "match": {
+        "closest_brand": "adobe",
+        "distance": 0.0,
+        "candidate": "adobe",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "legitimate-domain",
+      "brand": "adobe",
+      "url": "https://www.adobe.com/account",
+      "match": {
+        "closest_brand": "adobe",
+        "distance": 0.0,
+        "candidate": "adobe",
+        "legitimate_brand_domain": true,
+        "impersonation_signal": false
+      }
+    },
+    {
+      "kind": "synthetic-lookalike",
+      "brand": "adobe",
+      "url": "https://\u0430dobe.example/login",
+      "match": {
+        "closest_brand": "adobe",
+        "distance": 0.0,
+        "candidate": "\u0430dobe",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "synthetic-subdomain",
+      "brand": "adobe",
+      "url": "https://adobe.attacker.example",
+      "match": {
+        "closest_brand": "adobe",
+        "distance": 0.0,
+        "candidate": "adobe",
+        "legitimate_brand_domain": false,
+        "impersonation_signal": true
+      }
+    },
+    {
+      "kind": "brand-in-path-only",
+      "brand": "adobe",
+      "url": "https://unrelated.example/adobe",
+      "impersonation_signal": false
+    }
+  ],
+  "scope": "Finite curated starter registry: exact legitimate-domain exclusions and synthetic pattern checks. No universal coverage, live-compromise verification or model-score override."
+}

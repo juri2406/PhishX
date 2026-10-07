@@ -1,3 +1,9 @@
+> Current review model: run06, 24-feature extended profile. Receive the trusted
+> [revised handoff](model-handoff.md), use the default **PhishX model backend**
+> VS Code task, and follow [the revised workflow](person1-revised-workflow.md)
+> for new-source training. The older UCI training commands below retain the
+> 18-feature baseline for historical reproduction.
+
 # Person 1 work in VS Code
 
 Open the PhishX folder. Use Terminal > New Terminal for commands, and Terminal >

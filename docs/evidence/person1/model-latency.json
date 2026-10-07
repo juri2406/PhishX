@@ -1,0 +1,129 @@
+{
+  "mode": "model",
+  "model_version": "rf-v6-d5923fe7d93e-20261007",
+  "note": "Actual request timings; fixture mode is NOT model performance evidence.",
+  "runs": 20,
+  "median_request_ms": 28.6905,
+  "samples": [
+    {
+      "request_ms": 79.73,
+      "inference": 42.187,
+      "explanation": 15.985,
+      "total": 58.173
+    },
+    {
+      "request_ms": 30.156,
+      "inference": 14.262,
+      "explanation": 14.502,
+      "total": 28.765
+    },
+    {
+      "request_ms": 29.37,
+      "inference": 13.923,
+      "explanation": 14.546,
+      "total": 28.469
+    },
+    {
+      "request_ms": 28.901,
+      "inference": 13.622,
+      "explanation": 14.446,
+      "total": 28.068
+    },
+    {
+      "request_ms": 28.496,
+      "inference": 13.834,
+      "explanation": 13.954,
+      "total": 27.787
+    },
+    {
+      "request_ms": 28.979,
+      "inference": 13.882,
+      "explanation": 14.444,
+      "total": 28.325
+    },
+    {
+      "request_ms": 28.533,
+      "inference": 13.456,
+      "explanation": 14.441,
+      "total": 27.898
+    },
+    {
+      "request_ms": 28.879,
+      "inference": 13.844,
+      "explanation": 14.436,
+      "total": 28.28
+    },
+    {
+      "request_ms": 27.14,
+      "inference": 13.061,
+      "explanation": 13.458,
+      "total": 26.519
+    },
+    {
+      "request_ms": 27.14,
+      "inference": 12.42,
+      "explanation": 14.096,
+      "total": 26.516
+    },
+    {
+      "request_ms": 28.188,
+      "inference": 13.763,
+      "explanation": 13.826,
+      "total": 27.59
+    },
+    {
+      "request_ms": 28.44,
+      "inference": 13.377,
+      "explanation": 14.495,
+      "total": 27.873
+    },
+    {
+      "request_ms": 24.972,
+      "inference": 11.984,
+      "explanation": 12.417,
+      "total": 24.401
+    },
+    {
+      "request_ms": 28.846,
+      "inference": 13.733,
+      "explanation": 14.456,
+      "total": 28.189
+    },
+    {
+      "request_ms": 28.798,
+      "inference": 13.332,
+      "explanation": 14.646,
+      "total": 27.979
+    },
+    {
+      "request_ms": 27.722,
+      "inference": 13.104,
+      "explanation": 13.842,
+      "total": 26.946
+    },
+    {
+      "request_ms": 28.875,
+      "inference": 13.655,
+      "explanation": 14.466,
+      "total": 28.121
+    },
+    {
+      "request_ms": 27.987,
+      "inference": 12.553,
+      "explanation": 14.622,
+      "total": 27.175
+    },
+    {
+      "request_ms": 28.583,
+      "inference": 13.931,
+      "explanation": 13.758,
+      "total": 27.689
+    },
+    {
+      "request_ms": 29.529,
+      "inference": 13.967,
+      "explanation": 14.688,
+      "total": 28.655
+    }
+  ]
+}

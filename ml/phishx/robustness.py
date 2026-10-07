@@ -18,7 +18,16 @@ def variant(url, family):
     parts = urlsplit(parsed.canonical)
     if family == 'percent_encoding':
         path=parts.path
-        index=next((i for i,c in enumerate(path) if c.isascii() and c.isalnum()),None)
+        index=None
+        position=0
+        while position < len(path):
+            if path[position]=='%' and len(path[position:position+3])==3 and all(c in '0123456789abcdefABCDEF' for c in path[position+1:position+3]):
+                position+=3
+                continue
+            if path[position].isascii() and path[position].isalnum():
+                index=position
+                break
+            position+=1
         if index is None:
             return None
         modified=path[:index]+'%'+format(ord(path[index]),'02X')+path[index+1:]
