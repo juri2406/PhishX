@@ -153,3 +153,5 @@ For the full Unicode test suite on Windows, run:
 ```
 
 This avoids Windows legacy default encoding in a Person 1 CSV test.
+
+Parser errors keep HTTP 422 and `INVALID_URL`. The main message gives hostname/encoding recovery instructions; `error.details` retains the original parser reason under field `url`.

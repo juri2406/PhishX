@@ -1,3 +1,14 @@
+# Current Person 2 status — 7 October 2026
+
+The local classical-path application acceptance is complete. See
+[the acceptance report](person2-acceptance.md) for fresh-environment checks,
+20 browser cases, live HTTP/standalone parity, measured latency, mobile and
+error recovery evidence. This does not claim full project completion.
+
+The following sections retain the earlier implementation history; their
+pending-model statements were superseded by the supplied handoff and final
+acceptance pass.
+
 # Person 2 implementation status — 6 October 2026
 
 ## Completed without teammate input

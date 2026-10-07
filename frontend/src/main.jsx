@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import './style.css';
+import evaluationReportUrl from '../../docs/evaluation-run03.md?url';
 
 const examples = [
   ['Low sample', 'https://example.com/'],
@@ -9,6 +10,12 @@ const examples = [
   ['Encoded sample', 'https://example.com/%6c%6f%67%69%6e'],
 ];
 const base = (import.meta.env.VITE_API_BASE || '/api').replace(/\/$/, '');
+const modelExamples = [
+  ['Official domain', 'https://github.com/'],
+  ['Synthetic lookalike', 'https://pаypal.com/login'],
+  ['Synthetic subdomain', 'https://paypal.account-check.example/login'],
+  ['Encoded path', 'https://example.com/%6c%6f%67%69%6e'],
+];
 
 function App() {
   const [url, setUrl] = useState('');
@@ -30,7 +37,9 @@ function App() {
     event.preventDefault(); setError(''); setResult(null); setBusy(true);
     try {
       const response = await fetch(`${base}/scan`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url}), signal:AbortSignal.timeout(30000)});
-      const data = await response.json();
+      let data;
+      try {data = await response.json();}
+      catch {throw new Error('The API returned an unreadable response. Check the backend and retry.');}
       if (!response.ok) throw new Error(data.error?.message || 'Scan failed. Retry after checking the API.');
       setResult(data);
       requestAnimationFrame(() => resultRef.current?.focus());
@@ -53,7 +62,7 @@ function App() {
             <p id="url-hint" className="hint">Include http:// or https://. Maximum 2,048 characters.</p>
             <button className="primary" type="submit" disabled={busy || !url}>{busy ? 'Analyzing URL…' : 'Analyze URL'}<span aria-hidden="true">→</span></button>
           </form>
-          <div className="examples"><p>Try a fixture example</p><div className="flex flex-wrap gap-2">{examples.map(([label,value]) => <button type="button" key={label} disabled={busy} onClick={() => {setUrl(value);setError('');setResult(null);}}>{label}</button>)}</div></div>
+          <div className="examples"><p>{health?.mode === 'fixture' ? 'Try a fixture example' : 'Try a URL text example'}</p>{health?.mode === 'model' && <p className="hint">Synthetic examples test URL patterns; they are not verified phishing pages.</p>}<div className="flex flex-wrap gap-2">{(health?.mode === 'fixture' ? examples : modelExamples).map(([label,value]) => <button type="button" key={label} disabled={busy} onClick={() => {setUrl(value);setError('');setResult(null);}}>{label}</button>)}</div></div>
           {busy && <p className="feedback" role="status">Waiting for the API response…</p>}
           {error && <p className="error" role="alert">{error}</p>}
         </section>
@@ -65,7 +74,7 @@ function App() {
         <div className="result-grid"><div><h3>Model contributions</h3>{result.explanation_items.length > 0 ? <ol className="reasons">{result.explanation_items.map(item => <li key={item.feature}><p>{item.reason}</p><span>{item.feature}: {String(item.observed_value)} · +{item.contribution.toPrecision(3)} ({result.explanation_scale})</span></li>)}</ol> : <p>{result.explanation_message || 'No features made a positive contribution to the phishing output.'}</p>}<h3>Observed signals</h3>{result.observed_signals.length ? <ul className="signals">{result.observed_signals.map(item => <li key={item.name}><strong>{item.name.replaceAll('_',' ')}: {String(item.value)}</strong><p>{item.description}</p></li>)}</ul> : <p>No observed signals returned.</p>}</div><div><h3>Brand comparison</h3><p>{result.matched_brand || 'No brand match reported.'}</p>{result.skeleton_distance !== null && <p>Skeleton distance: {result.skeleton_distance}</p>}<h3>Unavailable signals</h3><p>{result.unavailable_signals.join(' · ')}</p><h3>Run details</h3><dl className="details"><div><dt>Model</dt><dd>{result.model_used}</dd></div><div><dt>Version</dt><dd>{result.model_version}</dd></div><div><dt>Cascade</dt><dd>{result.cascade_status}</dd></div><div><dt>Inference</dt><dd>{result.timings_ms.inference} ms</dd></div><div><dt>Explanation</dt><dd>{result.timings_ms.explanation} ms</dd></div></dl></div></div>
         <details><summary>API response</summary><pre>{JSON.stringify(result,null,2)}</pre></details>
       </section> : <section className="empty"><h2>Your analysis will appear here.</h2><p>Enter a URL above or choose a sample to test the scanner.</p></section>}
-    </main><footer><span>PhishX · 60% milestone workspace</span><span>Classical path only. Evaluation results pending.</span></footer>
+    </main><footer><span>PhishX · Classical prototype</span><a href={evaluationReportUrl} target="_blank" rel="noreferrer">Evaluation report and known limitations</a></footer>
   </div>;
 }
 createRoot(document.getElementById('root')).render(<App/>);

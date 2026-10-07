@@ -58,6 +58,15 @@ def test_injected_provider_and_explanations():
         assert client.post("/scan",json={"url":"https://bad"}).status_code == 422
 
 
+def test_parser_error_has_recovery_message_and_original_detail():
+    with TestClient(create_app(FakeProvider(), "model")) as client:
+        response = client.post("/scan", json={"url": "https://bad"})
+        error = response.json()["error"]
+        assert response.status_code == 422 and error["code"] == "INVALID_URL"
+        assert "retry" in error["message"]
+        assert error["details"] == [{"field": "url", "message": "Malformed host"}]
+
+
 def test_explanation_failure_preserves_prediction():
     class Broken(FakeProvider):
         def explain(self,prediction): raise RuntimeError("bad SHAP")

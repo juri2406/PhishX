@@ -1,10 +1,14 @@
-# PhishX: Person 2 implementation
+# PhishX: classical phishing scanner
 
-This checkout implements the application work that can proceed independently of
-Persons 1 and 3. Stack: FastAPI, React, Vite and Tailwind. Nothing here trains a
-phishing classifier, implements a second URL feature parser, or claims the 60%
-milestone is complete. The PDF was used as a task reference, not as authorization
-to publish, send messages, or change teammates' modules.
+The shared Person 1 detection package and Person 2 application are integrated:
+FastAPI, React, Vite, Tailwind, the frozen classical model, and verified SHAP
+explanations. Person 2's local milestone acceptance is complete; the overall
+60% milestone is not claimed because model research and independent review
+remain outstanding.
+
+Start with the [real-model demo guide](docs/person2-demo-guide.md) and the
+[Person 2 acceptance report](docs/person2-acceptance.md). Model binaries are
+supplied separately through the trusted handoff.
 
 ## Run the demo on Windows
 
@@ -60,13 +64,13 @@ Implemented independently:
   class, feature-order, finite-value and additivity checks.
 - API tests, synthetic SHAP unit checks, latency recorder and handoff templates.
 
-Pending Person 1: shared parser, real feature schema and skeleton matching,
-frozen trained artifact, class mapping, calibration status, evaluation data and
-verified SHAP compatibility. No `ml/` or training code has been created.
-Pending Person 3: independently labeled fixture, manual results and screenshots.
-Their delay does not block this development demo.
+Person 1's parser, features, skeleton matching, trained artifact and SHAP
+compatibility are supplied. Remaining model work concerns representative data,
+known false alarms, calibration review and independent final evaluation.
+Person 3's independently sourced fixture/review remains separate from the
+recorded Person 2 developer acceptance pass.
 
-## Connect the real model later
+## Run the real model
 
 See `docs/person1-handoff.md`. The provider factory loads exactly once at API
 startup. It owns loading the artifact and using Person 1's shared parser. Restart
@@ -76,13 +80,13 @@ model or deserializes arbitrary uploaded files.
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r backend/requirements-model.txt
 $env:PHISHX_MODE = "model"
-$env:PHISHX_PROVIDER = "ml.integration:create_provider"  # Person 1 supplies this
+$env:PHISHX_PROVIDER = "ml.integration:create_provider"  # Existing shared provider
 .\.venv\Scripts\python.exe -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 ```
 
 `PHISHX_MODE` defaults to `model`. Without a usable factory, `/health` reports
 `ready=false` and `/scan` returns 503. There is no automatic fixture fallback.
-The example module path above is a proposed handoff, not an existing module.
+The provider module above exists and uses the shared Person 1 extractor.
 Do not set fixture mode when collecting model/evaluation evidence.
 
 ## Contract (proposed for Person 1 review)
@@ -221,3 +225,5 @@ For the full Unicode test suite on Windows, run:
 ```
 
 This avoids Windows legacy default encoding in a Person 1 CSV test.
+
+Parser errors keep HTTP 422 and `INVALID_URL`. The main message gives hostname/encoding recovery instructions; `error.details` retains the original parser reason under field `url`.

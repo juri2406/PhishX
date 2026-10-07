@@ -59,7 +59,7 @@ def create_app(provider=None, mode=None):
             prediction = active.predict(body.url)
             score, band = score_probability(prediction.phishing_probability)
         except InvalidURL as exc:
-            return error(422, "INVALID_URL", str(exc))
+            return error(422, "INVALID_URL", "The URL could not be parsed. Check the hostname and percent encoding, then retry.", [{"field": "url", "message": str(exc)}])
         except Exception:
             logger.exception("Inference failed (submitted URL omitted)")
             return error(500, "INFERENCE_FAILED", "The model could not complete this scan. Check the backend logs.")

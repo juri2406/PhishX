@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-07",
+  "loading": {
+    "method": "temporary 1.5 second middleware delay with real provider",
+    "inputDisabled": true,
+    "examplesDisabled": true,
+    "statusShown": true
+  },
+  "keyboard": {
+    "enterSubmitted": true,
+    "resultFocus": true,
+    "tabFocusOutline": "solid 3px"
+  },
+  "mobile": {
+    "widths": [
+      390,
+      320
+    ],
+    "horizontalOverflow": false,
+    "exampleMinimumHeight": 44
+  },
+  "offline": {
+    "apiStopped": true,
+    "errorShown": true,
+    "retryAfterRestart": true
+  },
+  "malformedRecovery": true
+}
