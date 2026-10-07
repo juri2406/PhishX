@@ -1,0 +1,32 @@
+{
+  "keyboard_enter_and_focus": true,
+  "desktop_no_overflow": true,
+  "mobile390": {
+    "minExampleHeight": 44,
+    "overflow": false,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "mobile320": {
+    "overflow": false,
+    "scrollWidth": 320,
+    "width": 320
+  },
+  "invalid_error": "The URL could not be parsed. Check the hostname and percent encoding, then retry.",
+  "blank_submit_disabled": true,
+  "offline_error": "The API returned an unreadable response. Check the backend and retry.",
+  "offline_health_notice": true,
+  "keyboard_submit_focus": {
+    "button": "Analyze URL→",
+    "outlineStyle": "solid",
+    "outlineWidth": "3px"
+  },
+  "loading": {
+    "examplesDisabled": true,
+    "inputDisabled": true,
+    "status": "Waiting for the API response…",
+    "submitDisabled": true
+  },
+  "offline_recovery": true,
+  "loading_delay_scope": "Temporary 1500 ms middleware delay around the real model; not shipped or used in latency measurements"
+}

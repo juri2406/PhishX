@@ -1,0 +1,55 @@
+{
+  "benign": [
+    {
+      "seed": "https://svelte.dev/docs/svelte/overview",
+      "final_seed": "https://svelte.dev/docs/svelte/overview",
+      "title": "Overview \u2022 Svelte Docs",
+      "domain": "svelte.dev",
+      "status": 200,
+      "seed_html_sha256": "1b5af7eac5c81316d3762ec16e777d686099ee61e5268602f41f099de94cdf5b"
+    },
+    {
+      "seed": "https://www.typescriptlang.org/docs/",
+      "final_seed": "https://www.typescriptlang.org/docs/",
+      "title": "TypeScript: The starting point for learning TypeScript",
+      "domain": "typescriptlang.org",
+      "status": 200,
+      "seed_html_sha256": "fdf37eeda265486e3c8136bc68a540d269bc2549e40281287c02963bc3e21192"
+    },
+    {
+      "seed": "https://www.solidjs.com/",
+      "title": "SolidJS \u00b7 Reactive Javascript Library",
+      "review_method": "Live browser title plus official solidjs/solid repository link; raw HTML requires JS; HTTP-title-only check failed"
+    },
+    {
+      "seed": "https://v2.tauri.app/start/",
+      "final_seed": "https://v2.tauri.app/start/",
+      "title": "What is Tauri? | Tauri",
+      "domain": "tauri.app",
+      "status": 200,
+      "seed_html_sha256": "3fba8f1fd38683c197e17230fd53f5e1f03eb4aa154c3053edd2638ac3adb5aa"
+    },
+    {
+      "seed": "https://ziglang.org/learn/",
+      "final_seed": "https://ziglang.org/learn/",
+      "title": "Learn\n      \u00e2\u009a\u00a1\n      Zig Programming Language",
+      "domain": "ziglang.org",
+      "status": 200,
+      "seed_html_sha256": "559c83e99cb218dfc26789d60fa0ae3f5a7b3f4da291e0ec693d280c6edcdeb9"
+    },
+    {
+      "seed": "https://nim-lang.org/documentation.html",
+      "final_seed": "https://nim-lang.org/documentation.html",
+      "title": "Documentation - Nim Programming Language",
+      "domain": "nim-lang.org",
+      "status": 200,
+      "seed_html_sha256": "26a8193e3e00a9827c9d02fccf53d2ebcf6069ef32082c9319c34bcb63b83737"
+    }
+  ],
+  "phishing_source": "Official PhishTank snapshot; pages not visited",
+  "feed_sha256": "f9217d6eb4e455fc21e1a84af270bc3c9c16827db9e8f154971835f64b6ce593",
+  "fixture_sha256": "e80ef7d18b833ef06bf96e22713ec4462928beea2994103656f578236134912d",
+  "domain_skeleton_overlap": 0,
+  "selection": "Fixed before predictions, hash-sorted unused domain groups; never selected for their score",
+  "reviewer": "Codex assistant performing requested role tasks; no human teammate sign-off"
+}

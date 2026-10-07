@@ -1,3 +1,5 @@
+> Updated final review: [milestone-acceptance.md](milestone-acceptance.md). Person 2 run06 checks and Person 3 technical review materials are supplied; older pending statements below retain historical context. Human teammate sign-off is not claimed.
+
 # Current Person 2 status — 7 October 2026
 
 The local classical-path application acceptance is complete. See

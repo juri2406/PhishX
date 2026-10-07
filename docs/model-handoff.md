@@ -38,3 +38,11 @@ To run it, use `scripts/start-model.ps1 -ModelRun uci-run03` or explicitly set
 PHISHX_MODEL_PATH. Current default VS Code launch configs select run06.
 See [run03 evaluation](evaluation-run03.md) for its same-source historical
 results. No run03 checks are reattributed to run06.
+
+## Completed separate fixture review
+
+The earlier person3-review-v6.csv was a developer seed package. The completed
+separate-domain fixture, actual results, screenshots and one-page guide are now
+in `artifacts/handoff/PhishX_person3_review_v6.zip`. See person3-review.md for
+selection, source-label limitations, the three detection disagreements and
+explicit assistant authorship. Neither ZIP is available from a Git clone.

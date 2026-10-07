@@ -1,16 +1,17 @@
 # PhishX: classical phishing scanner
 
 The shared Person 1 detection package and Person 2 application are integrated:
-FastAPI, React, Vite, Tailwind, the frozen classical model, and verified SHAP
-explanations. Person 2's local milestone acceptance is complete; the overall
-60% milestone is not claimed because Person 3’s independent review
-remains outstanding. Person 1’s classical research deliverables are complete
-with explicit experimental-model limitations.
+FastAPI, React, the frozen classical model and verified SHAP explanations.
+The remaining Person 2 run06 checks and Person 3 fixture/review materials are
+complete as assistant-performed technical work. No human teammate signature
+or meeting attendance is claimed. See [the evidence index](docs/milestone-acceptance.md),
+[revised application acceptance](docs/person23-acceptance.md) and
+[separate fixture review](docs/person3-review.md).
 
-Start with the [real-model demo guide](docs/person2-demo-guide.md) and the
-[Person 2 acceptance report](docs/person2-acceptance.md). Model binaries are
-supplied separately through the trusted handoff.
-
+Start with [the one-page guide](docs/person3-user-guide.pdf). Model binaries and
+the full review fixture are shared separately in trusted local handoff ZIPs.
+The experimental model has known false positives and misses, and its output
+is uncalibrated. Later cascade, live lookups and deployment remain future work.
 
 ## Revised frozen classical model — 7 October 2026
 
@@ -35,7 +36,7 @@ See [run06 evaluation](docs/evaluation-run06.md) and
 external-source sample measured 90.81% accuracy, 90% recall and 5.79% FPR.
 The GitHub repository control still scores 55 and remains a known false positive.
 This experimental model does not establish deployment calibration or universal
-detection. Person 3's independent acceptance remains pending.
+detection. Person 3's separate fixture/review materials are in docs/person3-review.md; no human sign-off is claimed.
 
 The historical run03 instructions below remain valid for the earlier artifact;
 use the revised model handoff instructions for run06.
@@ -98,8 +99,7 @@ Person 1's parser, features, skeleton matching, trained artifact and SHAP
 compatibility are supplied. The revised model adds broader source coverage, a separate calibration review
 and untouched final evaluation. Representative coverage and known false alarms
 remain research limitations; see the run06 report.
-Person 3's independently sourced fixture/review remains separate from the
-recorded Person 2 developer acceptance pass.
+Person 3's separate post-freeze fixture and review now have actual browser/HTTP evidence; see docs/person3-review.md. Human teammate sign-off is not invented.
 
 ## Run the real model
 

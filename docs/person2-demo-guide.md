@@ -1,3 +1,5 @@
+> Updated final review: [person3-user-guide.pdf](person3-user-guide.pdf). Person 2 run06 checks and Person 3 technical review materials are supplied; older pending statements below retain historical context. Human teammate sign-off is not claimed.
+
 # Revised model note — 7 October 2026
 
 The default VS Code/model PowerShell launcher now selects run06. Receive

@@ -1,3 +1,19 @@
+# Current completed manual pass
+
+The run06 pass and separate 20-case fixture are recorded in person3-review.md
+and evidence/person3/. All 16 valid browser results matched the real API/model
+and SHAP; four malformed cases showed errors. Mobile, keyboard/focus, delayed
+loading and actual API outage/recovery were observed. The review is authored
+by Codex at the user's request; no human teammate signature is asserted.
+
+For another review, obtain the ignored full fixture ZIP and run
+`PYTHONPATH=ml:. .venv/bin/python scripts/review_fixture.py --fixture <CSV> --model artifacts/revised-run06/classical.joblib --output work/new-review`.
+Windows uses `.venv\Scripts\python.exe` and `PYTHONPATH=ml;.`. This script checks
+HTTP parity; repeat UI/mobile/outage observations manually in the browser.
+Do not count application parity as detection accuracy, or visit phishing targets.
+The older checklist below is retained for reproduction; fixture mode remains
+explicit, illustrative and separate from actual model checks.
+
 # Manual checks for the application
 
 Use fixture mode first; real model acceptance is a separate pass after handoff.

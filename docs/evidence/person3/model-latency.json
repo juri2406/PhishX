@@ -1,0 +1,189 @@
+{
+  "mode": "model",
+  "model_version": "rf-v6-d5923fe7d93e-20261007",
+  "note": "Actual request timings; fixture mode is NOT model performance evidence.",
+  "runs": 30,
+  "median_request_ms": 28.8315,
+  "samples": [
+    {
+      "request_ms": 81.0,
+      "inference": 43.487,
+      "explanation": 14.999,
+      "total": 58.487
+    },
+    {
+      "request_ms": 28.79,
+      "inference": 13.237,
+      "explanation": 14.462,
+      "total": 27.698
+    },
+    {
+      "request_ms": 29.201,
+      "inference": 13.9,
+      "explanation": 14.458,
+      "total": 28.358
+    },
+    {
+      "request_ms": 27.8,
+      "inference": 13.955,
+      "explanation": 13.036,
+      "total": 26.991
+    },
+    {
+      "request_ms": 28.843,
+      "inference": 13.51,
+      "explanation": 14.462,
+      "total": 27.972
+    },
+    {
+      "request_ms": 28.903,
+      "inference": 13.688,
+      "explanation": 14.403,
+      "total": 28.091
+    },
+    {
+      "request_ms": 28.319,
+      "inference": 13.195,
+      "explanation": 14.367,
+      "total": 27.562
+    },
+    {
+      "request_ms": 27.558,
+      "inference": 13.683,
+      "explanation": 13.005,
+      "total": 26.688
+    },
+    {
+      "request_ms": 28.379,
+      "inference": 13.41,
+      "explanation": 14.085,
+      "total": 27.495
+    },
+    {
+      "request_ms": 25.603,
+      "inference": 11.724,
+      "explanation": 13.058,
+      "total": 24.782
+    },
+    {
+      "request_ms": 26.809,
+      "inference": 11.686,
+      "explanation": 14.297,
+      "total": 25.983
+    },
+    {
+      "request_ms": 28.214,
+      "inference": 13.637,
+      "explanation": 13.849,
+      "total": 27.486
+    },
+    {
+      "request_ms": 28.82,
+      "inference": 13.639,
+      "explanation": 14.4,
+      "total": 28.039
+    },
+    {
+      "request_ms": 29.051,
+      "inference": 13.788,
+      "explanation": 14.332,
+      "total": 28.12
+    },
+    {
+      "request_ms": 27.801,
+      "inference": 13.774,
+      "explanation": 13.069,
+      "total": 26.842
+    },
+    {
+      "request_ms": 28.993,
+      "inference": 13.777,
+      "explanation": 14.362,
+      "total": 28.139
+    },
+    {
+      "request_ms": 28.699,
+      "inference": 13.733,
+      "explanation": 14.113,
+      "total": 27.846
+    },
+    {
+      "request_ms": 27.447,
+      "inference": 12.416,
+      "explanation": 14.188,
+      "total": 26.604
+    },
+    {
+      "request_ms": 28.915,
+      "inference": 13.705,
+      "explanation": 14.397,
+      "total": 28.102
+    },
+    {
+      "request_ms": 28.905,
+      "inference": 13.777,
+      "explanation": 14.335,
+      "total": 28.112
+    },
+    {
+      "request_ms": 28.572,
+      "inference": 13.718,
+      "explanation": 14.036,
+      "total": 27.754
+    },
+    {
+      "request_ms": 28.684,
+      "inference": 13.573,
+      "explanation": 14.285,
+      "total": 27.858
+    },
+    {
+      "request_ms": 29.274,
+      "inference": 13.954,
+      "explanation": 14.484,
+      "total": 28.438
+    },
+    {
+      "request_ms": 29.191,
+      "inference": 13.935,
+      "explanation": 14.475,
+      "total": 28.409
+    },
+    {
+      "request_ms": 27.075,
+      "inference": 11.896,
+      "explanation": 14.463,
+      "total": 26.358
+    },
+    {
+      "request_ms": 28.895,
+      "inference": 13.673,
+      "explanation": 14.478,
+      "total": 28.151
+    },
+    {
+      "request_ms": 29.182,
+      "inference": 13.784,
+      "explanation": 14.605,
+      "total": 28.389
+    },
+    {
+      "request_ms": 30.397,
+      "inference": 13.934,
+      "explanation": 15.273,
+      "total": 29.207
+    },
+    {
+      "request_ms": 45.301,
+      "inference": 28.39,
+      "explanation": 15.914,
+      "total": 44.304
+    },
+    {
+      "request_ms": 29.818,
+      "inference": 14.003,
+      "explanation": 14.77,
+      "total": 28.772
+    }
+  ]
+}

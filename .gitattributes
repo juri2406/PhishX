@@ -2,3 +2,6 @@
 ml/phishx/*.py text eol=lf
 ml/phishx/resources/*.json text eol=lf
 ml/phishx/resources/*.txt text eol=lf
+
+# PDF evidence is binary; preserve bytes on every platform.
+*.pdf binary

@@ -23,7 +23,7 @@ See [run06 evaluation](evaluation-run06.md) and
 external-source sample measured 90.81% accuracy, 90% recall and 5.79% FPR.
 The GitHub repository control still scores 55 and remains a known false positive.
 This experimental model does not establish deployment calibration or universal
-detection. Person 3's independent acceptance remains pending.
+detection. Person 3's separate fixture/review materials are supplied in person3-review.md; no human sign-off is claimed.
 
 The historical run03 instructions below remain valid for the earlier artifact;
 use the revised model handoff instructions for run06.

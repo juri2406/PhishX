@@ -1,0 +1,63 @@
+{
+  "model_version": "rf-v6-d5923fe7d93e-20261007",
+  "model_sha256": "a5a68744712975f0f5809dd6f13825eeb47dc4251153f3f65eadc2120727d3ed",
+  "scope": "Live localhost HTTP versus standalone inference; no page visits",
+  "checks": [
+    {
+      "id": "official-domain",
+      "risk_score": 28,
+      "standalone_match": true,
+      "shap_match": true
+    },
+    {
+      "id": "official-brand",
+      "risk_score": 24,
+      "standalone_match": true,
+      "shap_match": true
+    },
+    {
+      "id": "synthetic-1",
+      "risk_score": 91,
+      "standalone_match": true,
+      "shap_match": true
+    },
+    {
+      "id": "synthetic-2",
+      "risk_score": 99,
+      "standalone_match": true,
+      "shap_match": true
+    },
+    {
+      "id": "synthetic-3",
+      "risk_score": 96,
+      "standalone_match": true,
+      "shap_match": true
+    },
+    {
+      "id": "synthetic-4",
+      "risk_score": 92,
+      "standalone_match": true,
+      "shap_match": true
+    },
+    {
+      "id": "invalid-1",
+      "status": 422,
+      "error_code": "INVALID_REQUEST"
+    },
+    {
+      "id": "invalid-2",
+      "status": 422,
+      "error_code": "INVALID_URL"
+    },
+    {
+      "id": "invalid-3",
+      "status": 422,
+      "error_code": "INVALID_URL"
+    },
+    {
+      "id": "invalid-4",
+      "status": 422,
+      "error_code": "INVALID_REQUEST"
+    }
+  ]
+}

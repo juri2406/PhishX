@@ -1,0 +1,14 @@
+{
+  "source_commit": "50c800c",
+  "scope": "Fresh source-only git archive, new Python 3.14 venv, no old environment/raw dataset copied. Trusted v6 model copied and checked separately.",
+  "python_tests": 51,
+  "subtests": 11,
+  "skipped": 0,
+  "pip_check": "No broken requirements found",
+  "frontend_install": "pnpm install --frozen-lockfile; 78 locked packages installed using content-addressable store",
+  "frontend_build": "PASS",
+  "http_factory_checks": 10,
+  "model_version": "rf-v6-d5923fe7d93e-20261007",
+  "warning": "Non-failing Starlette/httpx deprecation warning",
+  "platform": "macOS arm64; Windows commands retained but not newly executed on Windows"
+}
