@@ -182,3 +182,42 @@ VS Code's model-backend task points to the corrected local artifact in
 For the prepared model ZIP, file placement, checksum, and teammate setup, follow
 [the model handoff instructions](docs/model-handoff.md). The ZIP is transferred
 separately; cloning the repository does not include the model.
+
+## Supplied model handoff on this checkout
+
+Person 1's PhishX_model_handoff.zip supplies the trusted experimental model at
+`artifacts/uci-run03/classical.joblib`, version `rf-v2-1774537c789e-seed42`.
+Its verified SHA256 is
+`2b59557ed0a23220bd69e0f2775ad934d20fa1587ff71fe2decb750fb2ff8ac7`.
+The file stays ignored by Git; another checkout still needs its own handoff copy.
+
+Install the package with `.\.venv\Scripts\python.exe -m pip install -e .` and
+the optional SHAP dependencies from backend/requirements-model.txt. From the
+repository root, launch the real backend with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/start-model.ps1
+```
+
+Stop any existing backend on port 8000 first. This launcher verifies the handed
+off checksum and sets PHISHX_MODE, PHISHX_PROVIDER and PHISHX_MODEL_PATH; it does
+not fall back to fixture predictions. Use `-Port 8001` for a separate API check;
+the frontend's default local proxy still targets port 8000.
+The model is experimental and uncalibrated; known legitimate navigation paths
+can produce false alarms. See docs/evaluation-run03.md. Local smoke checks verify
+integration and explanations, not new held-out accuracy or milestone completion.
+
+
+### Windows compatibility
+
+The frozen artifact hashes exact extractor/resource bytes. `.gitattributes`
+preserves their original LF line endings. CRLF-only checkout differences were
+restored to the model's expected SHA256 values without changing ML code.
+Do not remove or bypass the model compatibility checks.
+For the full Unicode test suite on Windows, run:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m pytest tests backend/tests -q
+```
+
+This avoids Windows legacy default encoding in a Person 1 CSV test.

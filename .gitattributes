@@ -1,0 +1,4 @@
+# Preserve the frozen model's extractor/resource checksums on Windows.
+ml/phishx/*.py text eol=lf
+ml/phishx/resources/*.json text eol=lf
+ml/phishx/resources/*.txt text eol=lf

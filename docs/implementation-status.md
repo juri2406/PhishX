@@ -52,3 +52,20 @@ Person 3 fills the independently sourced fixture and records manual checks,
 screenshots and guide from the integrated model demo. Neither handoff was needed
 to complete this development application. Live lookups, Char-CNN cascade,
 deployment and final evaluation remain future work.
+
+## Model handoff installed and verified locally
+
+The Person 1 ZIP artifact was installed at artifacts/uci-run03/classical.joblib
+and matched SHA256 2b59557ed0a23220bd69e0f2775ad934d20fa1587ff71fe2decb750fb2ff8ac7.
+The existing model provider is now usable in this checkout. Missing package
+requirements were installed. Added scripts/start-model.ps1 for checksum-verified
+startup and .gitattributes to retain the frozen extractor/resource LF bytes.
+No ML algorithm, model, parser behavior or training data was changed.
+
+Local validation: 46 tests passed plus 11 subtests using Python -X utf8; frontend
+pnpm build passed; pip check found no broken requirements. Real-artifact API/SHAP
+smoke checks on five URL controls/synthetic strings passed, as did malformed URL
+rejection and a real HTTP factory startup check. Detailed local smoke results
+are stored in ignored work/model-handoff-checks.json. This is integration evidence,
+not a fresh accuracy benchmark or a 60% completion claim. The model remains
+experimental and uncalibrated; known navigation-path false alarms remain.
