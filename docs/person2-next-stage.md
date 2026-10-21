@@ -1,5 +1,12 @@
 # Person 2 next-stage implementation — 21 October 2026
 
+> Update, 21 October 2026: the opt-in research CNN/cascade provider and minimal
+> route metadata integration are now supplied. It failed the broader-source
+> false-positive promotion check and remains disabled by default. See
+> [Person 1 neural handoff](person1-neural-handoff.md). The original completion
+> gates below record the status before that handoff; browser and deployment
+> validation remain open.
+
 The classical milestone remains the accepted baseline. This change adds opt-in
 live observations, a local launcher, and container deployment configuration.
 It does not claim that the final project or deployment is complete.

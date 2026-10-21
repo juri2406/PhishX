@@ -90,3 +90,11 @@ versions are recorded in `ml/requirements-verified.txt`.
 The lower fresh result and remaining path false alarms are retained openly.
 Do not use the higher original-source score as a deployment claim. Raw data,
 model binaries and detailed evaluation outputs stay in ignored local directories.
+
+
+## Neural stage, 21 October 2026
+
+CNN/cascade implementation, frozen training and measured comparison are complete
+as a research handoff. Broader-source false positives regressed, so the default
+model is unchanged. See [the neural handoff](person1-neural-handoff.md) and its
+linked aggregate evidence. Promotion and neural explanations remain open.

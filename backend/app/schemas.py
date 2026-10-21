@@ -42,8 +42,8 @@ class ScanResponse(BaseModel):
     explanation_status: Literal["available", "unavailable", "fixture"]
     explanation_message: str | None = None
     explanation_scale: str | None = None
-    model_used: Literal["classical"] = "classical"
-    cascade_status: Literal["not_implemented"] = "not_implemented"
+    model_used: Literal["classical", "cascade"] = "classical"
+    cascade_status: Literal["not_implemented", "available"] = "not_implemented"
     model_version: str
     mode: Literal["fixture", "model"]
     probability_calibrated: bool = False

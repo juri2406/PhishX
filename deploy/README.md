@@ -39,3 +39,7 @@ requirements files; the container recipe itself still needs a build verification
 If hosting frontend separately, set `VITE_API_BASE` at build time and
 `PHISHX_ALLOWED_ORIGINS` as a comma-separated exact origin list on the API. The
 included same-origin proxy requires neither setting.
+
+The supplied backend image serves the established classical provider. The optional
+neural research provider needs the separate `ml/requirements-neural.txt` and
+private neural handoff; it is not enabled or installed by this deployment recipe.

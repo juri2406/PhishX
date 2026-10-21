@@ -199,3 +199,23 @@ or SHAP explanations. Fixture mode cannot perform network checks.
 See [next-stage status](person2-next-stage.md) for measured verification
 and remaining gates; [container candidate](../deploy/README.md) is unbuilt here.
 CNN integration, new browser acceptance and verified hosting remain open.
+
+
+## Person 1 neural research handoff (21 October 2026)
+
+The character CNN and uncertainty cascade are trained and evaluated. See
+[the neural handoff](person1-neural-handoff.md) for frozen artifacts, source
+limitations, commands and measured regressions. The new cascade is **not promoted**:
+its false-positive rate on the retrospective broader-source run06 set rises
+from 5.79% to 20.73%, despite stronger recall and a good fresh historical UCI result.
+Classical v6 remains the default and the ordinary launcher is unchanged.
+
+Explicit research factory: `ml.neural_integration:create_provider`, requiring
+`PHISHX_ALLOW_RESEARCH_CASCADE=1` and `PHISHX_NEURAL_PATH`. `/scan.model_used`
+now permits `classical` or `cascade`; `cascade_status` permits `not_implemented`
+or `available`. Route metadata comes from the frozen provider, never from UI
+fixtures. `/health` reflects the connected provider. Neural-routed predictions
+have unavailable explanations; RF SHAP is supplied only for unchanged RF output.
+No neural SHAP or calibrated probability is claimed. Raw holdouts and weights
+remain ignored and are handed over privately. Final neural-quality promotion,
+browser acceptance and deployment are still open.

@@ -1,0 +1,2 @@
+# Install alongside the recorded classical requirements.
+torch==2.14.1

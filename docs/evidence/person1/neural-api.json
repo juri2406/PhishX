@@ -1,0 +1,66 @@
+{
+  "health": {
+    "status": "ok",
+    "ready": true,
+    "mode": "model",
+    "model_version": "cascade-v1-fc1ae95b2a94",
+    "cascade_status": "available",
+    "live_signals_enabled": false
+  },
+  "checks": [
+    {
+      "url": "https://github.com/",
+      "risk_score": 38,
+      "probability": 0.37789925932884216,
+      "model_used": "cascade",
+      "cnn_routed": true,
+      "explanation_status": "unavailable",
+      "timings_ms": {
+        "inference": 14.876,
+        "explanation": 0.44,
+        "total": 15.317
+      }
+    },
+    {
+      "url": "https://example.com/",
+      "risk_score": 100,
+      "probability": 0.9958029389381409,
+      "model_used": "cascade",
+      "cnn_routed": true,
+      "explanation_status": "unavailable",
+      "timings_ms": {
+        "inference": 14.181,
+        "explanation": 0.247,
+        "total": 14.429
+      }
+    },
+    {
+      "url": "https://paypal.com/login",
+      "risk_score": 99,
+      "probability": 0.9855664968490601,
+      "model_used": "cascade",
+      "cnn_routed": true,
+      "explanation_status": "unavailable",
+      "timings_ms": {
+        "inference": 14.458,
+        "explanation": 0.229,
+        "total": 14.687
+      }
+    },
+    {
+      "url": "https://p\u0430ypal.com/login",
+      "risk_score": 91,
+      "probability": 0.91100494581653,
+      "model_used": "classical",
+      "cnn_routed": false,
+      "explanation_status": "available",
+      "timings_ms": {
+        "inference": 14.064,
+        "explanation": 14.915,
+        "total": 28.98
+      }
+    }
+  ],
+  "invalid_status": 422,
+  "transport": "FastAPI TestClient with real frozen models, not browser or network latency"
+}
