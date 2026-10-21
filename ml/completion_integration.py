@@ -9,12 +9,12 @@ from backend.app.schemas import Explanation
 
 class ReleaseProvider(CascadeProvider):
     model_profile='release_cascade'
-    notice='Local evaluation release: RF and character-CNN cascade. Scores are uncalibrated and can be wrong; see the evaluation report.'
+    notice='Local evaluation release: RF/character-CNN cascade with frozen context. Scores are uncalibrated and can be wrong; see the evaluation report.'
 
     def __init__(self,directory,classical):
         super().__init__(directory,classical)
         policy=self.cascade.policy
-        if policy.get('fusion') not in ('minimum','blend'):
+        if policy.get('fusion') not in ('minimum','blend','meta','ranked'):
             raise ValueError('Unknown release fusion policy')
         code=Path(__file__).with_name('phishx')/'component_shapley.py'
         if hashlib.sha256(code.read_bytes()).hexdigest()!=policy['explanation_code_sha256']:
@@ -23,6 +23,11 @@ class ReleaseProvider(CascadeProvider):
     def predict(self,url):
         prediction=super().predict(url)
         prediction.context['submitted_url']=url
+        if self.cascade.ranks is not None:
+            from phishx.ranked_context import lookup_rank
+            from backend.app.schemas import Signal
+            rank=lookup_rank(self.cascade.analyze(url),self.cascade.ranks)
+            prediction.observed_signals.append(Signal(name='domain_popularity_rank',value=rank if rank<=1000000 else 'Not in frozen top 1M',description='Observed frozen Tranco rank, used as a learned feature; popularity never forces a benign verdict.'))
         return prediction
 
     def explain(self,prediction):

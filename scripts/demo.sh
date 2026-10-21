@@ -23,7 +23,7 @@ else
 fi
 case "${1:-start}" in
   start)
-    if [[ ! -f artifacts/release-v3/classical.joblib || ! -f artifacts/release-v3/charcnn.pt ]]; then
+    if [[ ! -f artifacts/revised-run06/classical.joblib ]]; then
       echo 'Extract the trusted PhishX final model handoff into this repository first.' >&2
       exit 1
     fi

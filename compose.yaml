@@ -6,7 +6,7 @@ services:
     environment:
       PHISHX_LIVE_SIGNALS: ${PHISHX_LIVE_SIGNALS:-1}
     volumes:
-      - ./artifacts/release-v3:/models:ro
+      - ./artifacts/revised-run06:/models:ro
     read_only: true
     tmpfs:
       - /tmp

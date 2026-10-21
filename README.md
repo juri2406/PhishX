@@ -324,3 +324,18 @@ Health adds `model_profile` and `model_notice` for truthful provider identificat
 Failed candidates remain blocked by their recorded promotion gates. See
 `docs/evidence/completion` for the failed experiments; deployment verification
 and final release selection are still in progress.
+
+## Local Docker demo (October 2026 completion work)
+
+Run `bash scripts/demo.sh` and open http://127.0.0.1:8080. See
+[deployment instructions](deploy/README.md) and [current completion status](docs/project-completion.md).
+The demo uses the existing classical RF v6 model; experimental cascade candidates
+have not passed all release gates and are not promoted. Model binaries remain a
+private handoff, outside Git. The scan contract now includes optional
+`explanation_method` and `explanation_audit` fields. Classical responses use
+`tree_shap`; the guarded research provider supports `exact_url_component_shapley`
+and signed protocol/host/path/query contributions relative to its explicit
+placeholder reference. Health also reports model profile and notice where supplied.
+The research provider can expose the observed frozen domain popularity rank;
+that feature is learned context, not a whitelist. Full-project quality acceptance
+is still open; see the measured failures in the status document.

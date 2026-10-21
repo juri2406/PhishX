@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-21",
+  "target": "http://127.0.0.1:8080/",
+  "model": "rf-v6-d5923fe7d93e-20261007",
+  "observations": {
+    "synthetic_lookalike_score": 91,
+    "normalized_host": "xn--pypal-4ve.com",
+    "real_tree_shap_visible": true,
+    "focus_after_scan": "Scan result",
+    "next_tab": "Run live checks",
+    "mobile_viewport_width": 390,
+    "mobile_document_width": 390,
+    "desktop_and_mobile_visually_reviewed": true
+  },
+  "screenshots": [
+    "docker-desktop.png",
+    "docker-mobile.png",
+    "docker-ready.png"
+  ],
+  "reviewer": "Codex; no human acceptance claimed"
+}

@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-21",
+  "runtime": "Dedicated Colima phishx VM, Docker",
+  "backend": {
+    "user": "app",
+    "readonly_root_filesystem": true,
+    "published_ports": {}
+  },
+  "frontend": {
+    "user": "101",
+    "readonly_root_filesystem": false,
+    "published_ports": {
+      "8080/tcp": "127.0.0.1:8080"
+    }
+  },
+  "status": "both running"
+}

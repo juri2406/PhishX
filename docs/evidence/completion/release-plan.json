@@ -1,0 +1,12 @@
+{
+  "candidate": "Consensus cascade v2; RF output unchanged below 0.5 or above 0.9. Within inclusive [0.5,0.9], final score is min(RF,CNN). Frozen v6 forest and neural-run01 CNN weights are not retrained.",
+  "selection_basis": "Development selection-set examination; suppression-only fusion selected before either completion holdout is opened for predictions.",
+  "quality_gates": {
+    "external_max_false_positive_rate": 0.05,
+    "each_holdout_max_recall_drop_against_rf": 0.02,
+    "uci_min_recall": 0.90,
+    "uci_max_false_positive_rate": 0.05,
+    "external_min_recall": 0.88
+  },
+  "policy": "No post-holdout tuning or relaxed gates. Any failure leaves the existing classical default unchanged. Scores remain uncalibrated. No live signals change model scores."
+}

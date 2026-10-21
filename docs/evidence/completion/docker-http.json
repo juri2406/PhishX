@@ -1,0 +1,103 @@
+{
+  "recorded_at": "2026-10-21T17:35:00.779982+00:00",
+  "base": "http://127.0.0.1:8080",
+  "health": {
+    "status": "ok",
+    "ready": true,
+    "mode": "model",
+    "model_version": "rf-v6-d5923fe7d93e-20261007",
+    "cascade_status": "not_implemented",
+    "model_profile": "classical",
+    "model_notice": null,
+    "live_signals_enabled": true
+  },
+  "real_model_checks": [
+    {
+      "url": "https://example.com/",
+      "probability": 0.25875196244571097,
+      "risk_score": 26,
+      "model_used": "classical",
+      "explanation_method": "tree_shap",
+      "standalone_explanation_parity": true,
+      "timings_ms": {
+        "inference": 37.485,
+        "explanation": 26.078,
+        "total": 63.564
+      }
+    },
+    {
+      "url": "https://p\u0430ypal.com/login",
+      "probability": 0.91100494581653,
+      "risk_score": 91,
+      "model_used": "classical",
+      "explanation_method": "tree_shap",
+      "standalone_explanation_parity": true,
+      "timings_ms": {
+        "inference": 13.973,
+        "explanation": 13.059,
+        "total": 27.032
+      }
+    },
+    {
+      "url": "https://github.com/juri2406/PhishX",
+      "probability": 0.5545646541482071,
+      "risk_score": 55,
+      "model_used": "classical",
+      "explanation_method": "tree_shap",
+      "standalone_explanation_parity": true,
+      "timings_ms": {
+        "inference": 12.073,
+        "explanation": 12.55,
+        "total": 24.623
+      }
+    }
+  ],
+  "live_checks": {
+    "checks": [
+      {
+        "name": "DNS",
+        "status": "available",
+        "value": "104.20.23.154, 172.66.147.243",
+        "message": "Public DNS answers at lookup time."
+      },
+      {
+        "name": "TLS validity",
+        "status": "available",
+        "value": true,
+        "message": "HTTPS certificate chain and hostname verified."
+      },
+      {
+        "name": "Redirects",
+        "status": "available",
+        "value": 0,
+        "message": "HEAD redirect hops observed; servers may treat browser GET requests differently."
+      },
+      {
+        "name": "Domain age",
+        "status": "available",
+        "value": 11391,
+        "message": "Days since RDAP registration; registration is not a safety verdict."
+      }
+    ],
+    "redirect_chain": [
+      {
+        "scheme": "https",
+        "host": "example.com",
+        "http_status": 200
+      }
+    ],
+    "checked_at": "2026-10-21T17:35:00.788189+00:00",
+    "affects_model_score": false
+  },
+  "checks": {
+    "root_served": true,
+    "same_origin_proxy": true,
+    "model_parity": true,
+    "additivity": true,
+    "malformed_rejected": true,
+    "private_targets_blocked": true,
+    "security_headers": true,
+    "model_and_dotfiles_not_served": true
+  },
+  "scope": "Real local nginx+Linux containers; model latency is actual backend timing, not a fabricated estimate."
+}

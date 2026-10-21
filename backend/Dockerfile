@@ -6,7 +6,7 @@ RUN pip install --no-cache-dir -r backend/requirements-verified.txt -r ml/requir
 RUN pip install --no-cache-dir torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
 COPY backend backend
 COPY ml ml
-ENV PYTHONPATH=ml:. PHISHX_MODE=model PHISHX_PROVIDER=ml.completion_integration:create_provider PHISHX_MODEL_PATH=/models/classical.joblib PHISHX_RELEASE_PATH=/models
+ENV PYTHONPATH=ml:. PHISHX_MODE=model PHISHX_PROVIDER=ml.integration:create_provider PHISHX_MODEL_PATH=/models/classical.joblib PHISHX_RELEASE_PATH=/models
 RUN useradd --uid 10001 --create-home app
 USER app
 EXPOSE 8000

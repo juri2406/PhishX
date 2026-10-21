@@ -17,8 +17,26 @@ class CascadePredictor:
             raise ValueError('Cascade classical artifact mismatch')
         if self.policy.get('cascade_code_sha256') and hashlib.sha256(Path(__file__).read_bytes()).hexdigest() != self.policy['cascade_code_sha256']:
             raise ValueError('Cascade code checksum mismatch')
-        if self.policy.get('fusion', 'blend') not in {'blend', 'minimum'}:
+        if self.policy.get('fusion', 'blend') not in {'blend', 'minimum', 'meta', 'ranked'}:
             raise ValueError('Unknown cascade fusion')
+        self.meta = None
+        if self.policy.get('fusion') in ('meta','ranked'):
+            import joblib
+            path=self.directory/'fusion.joblib'
+            if hashlib.sha256(path.read_bytes()).hexdigest()!=self.policy['fusion_sha256']:
+                raise ValueError('Fusion model checksum mismatch')
+            self.meta=joblib.load(path)  # Trusted local frozen handoff only.
+        self.ranks = None
+        if self.policy.get('fusion') == 'ranked':
+            import joblib
+            from .ranked_context import CONTEXT_NAMES
+            context_code=Path(__file__).with_name('ranked_context.py')
+            if hashlib.sha256(context_code.read_bytes()).hexdigest()!=self.policy['context_code_sha256'] or list(CONTEXT_NAMES)!=self.policy['context_names']:
+                raise ValueError('Context feature code/schema mismatch')
+            path=self.directory/'rank-context.joblib'
+            if hashlib.sha256(path.read_bytes()).hexdigest()!=self.policy['rank_context_sha256']:
+                raise ValueError('Ranking snapshot checksum mismatch')
+            self.ranks=joblib.load(path)
         self.bundle = load_bundle(classical_path)
         self.cnn = CNNPredictor(directory)
         if self.cnn.version != self.policy['cnn_version']:
@@ -37,6 +55,19 @@ class CascadePredictor:
         if routed.any():
             cnn = np.array(self.cnn.probabilities([u for u,r in zip(urls,routed) if r]))
             weight = self.policy['cnn_weight']
+            if self.policy.get('fusion') == 'ranked':
+                from .ranked_context import context_matrix
+                selected=[a for a,r in zip(analyses,routed) if r]
+                final[routed]=self.meta.predict_proba(context_matrix(classical[routed],cnn,selected,self.ranks))[:,1]
+                return final, classical, routed, analyses
+            if self.policy.get('fusion') == 'meta':
+                final[routed] = self.meta.predict_proba(fusion_features(classical[routed],cnn))[:,1]
+                return final, classical, routed, analyses
             final[routed] = (np.minimum(classical[routed], cnn) if self.policy.get('fusion') == 'minimum'
                              else (1-weight)*classical[routed] + weight*cnn)
         return final, classical, routed, analyses
+
+
+def fusion_features(classical, neural):
+    """One shared train/inference transform; bounded logits limit numeric drift."""
+    return np.column_stack([np.log(p/(1-p)) for p in (np.clip(classical,.001,.999),np.clip(neural,.001,.999))])

@@ -246,3 +246,19 @@ Health adds `model_profile` and `model_notice` for truthful provider identificat
 Failed candidates remain blocked by their recorded promotion gates. See
 `docs/evidence/completion` for the failed experiments; deployment verification
 and final release selection are still in progress.
+
+## October 2026 local Docker and research contract
+
+`bash scripts/demo.sh` serves the classical RF v6 provider at localhost:8080 using
+its separate private handoff. See `docs/project-completion.md` and `deploy/README.md`.
+No completion cascade candidate passed every quality gate. Do not promote them.
+The scan contract adds optional `explanation_method` and `explanation_audit`.
+Classical responses use `tree_shap`. The guarded experimental provider uses
+`exact_url_component_shapley`: signed protocol/host/path/query contributions,
+16 actual model evaluations, explicit placeholder baseline and additivity audit.
+Fragments remain fixed. This is a model explanation, not a safety guarantee.
+Health includes model profile/notice where provided. The experimental ranked
+provider exposes the observed frozen domain rank as learned context, not a benign
+verdict override. Tranco acquisition postdates historical labels; no temporal
+validation claim is supported. Experimental source hashes and weights are pinned;
+model/rank binaries and raw datasets must remain outside Git.
