@@ -8,3 +8,7 @@
 footer a{text-decoration:underline;text-underline-offset:3px}
 
 .live-checks{margin-top:28px;border-top:1px solid #c9d0c3;padding-top:8px;overflow-wrap:anywhere}.live-checks>p{max-width:72ch;font-size:14px}.live-button{min-height:44px;background:#234e37;color:white;border-radius:6px;padding:10px 18px}.live-button:hover:not(:disabled){background:#153b29}
+
+.signals{overflow-wrap:anywhere}
+
+.results p{overflow-wrap:anywhere}

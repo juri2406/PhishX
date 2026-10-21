@@ -49,7 +49,7 @@ def create_app(provider=None, mode=None):
     @app.get("/health")
     def health():
         active = app.state.provider
-        return {"status": "ok" if active else "not_ready", "ready": active is not None, "mode": selected_mode, "model_version": getattr(active, "version", None), "cascade_status": getattr(active, "cascade_status", "not_implemented"), "live_signals_enabled": selected_mode == "model" and os.getenv("PHISHX_LIVE_SIGNALS", "0") == "1"}
+        return {"status": "ok" if active else "not_ready", "ready": active is not None, "mode": selected_mode, "model_version": getattr(active, "version", None), "cascade_status": getattr(active, "cascade_status", "not_implemented"), "model_profile": getattr(active, "model_profile", "classical"), "model_notice": getattr(active, "notice", None), "live_signals_enabled": selected_mode == "model" and os.getenv("PHISHX_LIVE_SIGNALS", "0") == "1"}
 
     @app.post("/signals", response_model=LiveSignalsResponse)
     async def live_signals(body: ScanRequest):
@@ -86,10 +86,11 @@ def create_app(provider=None, mode=None):
             return error(500, "INFERENCE_FAILED", "The model could not complete this scan. Check the backend logs.")
         predicted = perf_counter()
         items, scale, message = [], None, None
+        method, audit = None, None
         status = "fixture" if selected_mode == "fixture" else "unavailable"
         if selected_mode == "fixture":
             message = "Sample data only. SHAP explanations require Person 1's frozen model."
-        elif prediction.context.get("cnn_routed", False):
+        elif prediction.context.get("cnn_routed", False) and getattr(active, "model_profile", "") != "release_cascade":
             message = "This score used the research CNN. A validated neural explanation is unavailable; classical SHAP reasons were not substituted."
         else:
             try:
@@ -101,12 +102,13 @@ def create_app(provider=None, mode=None):
                     raise ValueError("Explanation output scale is missing")
                 items = sorted(valid, key=lambda item: item.contribution, reverse=True)[:3]
                 scale, status = explanation.scale, "available"
+                method, audit = getattr(explanation, "method", "tree_shap"), getattr(explanation, "audit", None)
             except Exception:
                 logger.exception("SHAP explanation failed")
                 message = "Prediction succeeded, but model explanations are unavailable. No reasons were substituted."
         explained = perf_counter()
         try:
-            return ScanResponse(submitted_url=body.url, normalized_host=prediction.normalized_host, phishing_probability=prediction.phishing_probability, risk_score=score, risk_level=band, matched_brand=prediction.matched_brand, skeleton_distance=prediction.skeleton_distance, observed_signals=prediction.observed_signals, explanation_items=items, explanation_status=status, explanation_message=message, explanation_scale=scale, model_version=active.version, mode=selected_mode, probability_calibrated=active.calibrated, model_used=prediction.context.get("model_used", "classical"), cascade_status=prediction.context.get("cascade_status", "not_implemented"), timings_ms={"inference": round((predicted-start)*1000, 3), "explanation": round((explained-predicted)*1000, 3), "total": round((explained-start)*1000, 3)})
+            return ScanResponse(submitted_url=body.url, normalized_host=prediction.normalized_host, phishing_probability=prediction.phishing_probability, risk_score=score, risk_level=band, matched_brand=prediction.matched_brand, skeleton_distance=prediction.skeleton_distance, observed_signals=prediction.observed_signals, explanation_items=items, explanation_status=status, explanation_message=message, explanation_scale=scale, explanation_method=method, explanation_audit=audit, model_version=active.version, mode=selected_mode, probability_calibrated=active.calibrated, model_used=prediction.context.get("model_used", "classical"), cascade_status=prediction.context.get("cascade_status", "not_implemented"), timings_ms={"inference": round((predicted-start)*1000, 3), "explanation": round((explained-predicted)*1000, 3), "total": round((explained-start)*1000, 3)})
         except Exception:
             logger.exception("Provider response violates API contract")
             return error(500, "INVALID_MODEL_RESPONSE", "The model output does not match the agreed API contract.")

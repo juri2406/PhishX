@@ -15,6 +15,10 @@ class CascadePredictor:
             raise ValueError('Invalid cascade gate or blend weight')
         if hashlib.sha256(Path(classical_path).read_bytes()).hexdigest() != self.policy['classical_sha256']:
             raise ValueError('Cascade classical artifact mismatch')
+        if self.policy.get('cascade_code_sha256') and hashlib.sha256(Path(__file__).read_bytes()).hexdigest() != self.policy['cascade_code_sha256']:
+            raise ValueError('Cascade code checksum mismatch')
+        if self.policy.get('fusion', 'blend') not in {'blend', 'minimum'}:
+            raise ValueError('Unknown cascade fusion')
         self.bundle = load_bundle(classical_path)
         self.cnn = CNNPredictor(directory)
         if self.cnn.version != self.policy['cnn_version']:
@@ -33,5 +37,6 @@ class CascadePredictor:
         if routed.any():
             cnn = np.array(self.cnn.probabilities([u for u,r in zip(urls,routed) if r]))
             weight = self.policy['cnn_weight']
-            final[routed] = (1-weight)*classical[routed] + weight*cnn
+            final[routed] = (np.minimum(classical[routed], cnn) if self.policy.get('fusion') == 'minimum'
+                             else (1-weight)*classical[routed] + weight*cnn)
         return final, classical, routed, analyses

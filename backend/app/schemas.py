@@ -42,6 +42,8 @@ class ScanResponse(BaseModel):
     explanation_status: Literal["available", "unavailable", "fixture"]
     explanation_message: str | None = None
     explanation_scale: str | None = None
+    explanation_method: str | None = None
+    explanation_audit: dict | None = None
     model_used: Literal["classical", "cascade"] = "classical"
     cascade_status: Literal["not_implemented", "available"] = "not_implemented"
     model_version: str

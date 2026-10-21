@@ -309,3 +309,18 @@ fixture does not establish promotion or general accuracy. See
 [the final-stage review](docs/person3-final-review.md) for provenance, defects,
 live-check/outage observations and remaining project gates. Review was performed
 by Codex; no human teammate signature or approval is claimed.
+
+
+## Final local-deployment work in progress
+
+The completion branch adds optional `explanation_method` and `explanation_audit`
+fields. A release provider can compute exact four-component Shapley values
+(protocol, authority, path, query) by evaluating all 16 coalitions of the entire
+frozen cascade; the stated reference is never fetched, and fragments remain
+constant. The signed contributions plus baseline must reproduce the actual
+model output within 1e-5. This is distinct from classical numeric-feature
+TreeSHAP. No explanation is fabricated when validation fails.
+Health adds `model_profile` and `model_notice` for truthful provider identification.
+Failed candidates remain blocked by their recorded promotion gates. See
+`docs/evidence/completion` for the failed experiments; deployment verification
+and final release selection are still in progress.

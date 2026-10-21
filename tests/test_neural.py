@@ -82,3 +82,10 @@ def test_cascade_only_runs_cnn_inside_gate():
     assert routed.tolist()==[False,True,False]
     assert final.tolist()==pytest.approx([.05,.7,.95])
     assert rf.tolist()==[.05,.5,.95]
+
+
+def test_failed_release_cannot_be_started(monkeypatch,tmp_path):
+    from ml.completion_integration import create_provider
+    (tmp_path/'release-evaluation.json').write_text('{"all_quality_gates_passed":false}')
+    monkeypatch.setenv('PHISHX_RELEASE_PATH',str(tmp_path))
+    with pytest.raises(ValueError,match='quality gates'):create_provider()

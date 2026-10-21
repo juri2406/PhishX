@@ -23,6 +23,8 @@ class Prediction:
 class AttributionResult:
     items: list[Explanation]
     scale: str
+    method: str = "tree_shap"
+    audit: dict | None = None
 
 
 class Provider(Protocol):

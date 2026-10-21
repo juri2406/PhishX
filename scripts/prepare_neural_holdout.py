@@ -10,11 +10,11 @@ from phishx.urls import normalize_url, InvalidURL
 from phishx.dataset import domain_skeleton
 
 
-def prepare(output, per_class=1000):
+def prepare(output, per_class=1000, seed="neural-holdout-v1"):
     output = Path(output)
     if output.exists(): raise ValueError('Use a new output directory')
     observed = set()
-    inputs = sorted(Path('data/processed').glob('**/*.csv')) + [Path('data/raw/uci_sample.csv'),Path('data/raw/uci_fresh_test.csv'),Path('work/person3/fixture.csv')]
+    inputs = sorted(Path('data/processed').glob('**/*.csv')) + [Path('data/raw/uci_sample.csv'),Path('data/raw/uci_fresh_test.csv'),Path('work/person3/fixture.csv'),Path('work/person3-final/fixture.csv')]
     hashes = {}
     for path in inputs:
         if not path.exists(): continue
@@ -29,7 +29,7 @@ def prepare(output, per_class=1000):
     with zipfile.ZipFile(archive) as z:
         with z.open('PhiUSIIL_Phishing_URL_Dataset.csv') as file:
             candidates = [(r['URL'],1-int(r['label'])) for r in csv.DictReader(io.TextIOWrapper(file,encoding='utf-8-sig'))]
-    candidates.sort(key=lambda r:hashlib.sha256(('neural-holdout-v1:'+r[0]).encode()).hexdigest())
+    candidates.sort(key=lambda r:hashlib.sha256((seed+':'+r[0]).encode()).hexdigest())
     rows = []; counts = {0:0,1:0}; selected = set()
     for url,label in candidates:
         if counts[label] >= per_class: continue
@@ -45,7 +45,7 @@ def prepare(output, per_class=1000):
     output.mkdir(parents=True)
     with (output/'holdout.csv').open('w',encoding='utf-8',newline='') as file:
         writer=csv.DictWriter(file,fieldnames=['url','label','group','source']);writer.writeheader();writer.writerows(rows)
-    manifest={'policy':'Frozen before neural training. SHA256 order, one record per unused registrable-domain skeleton; 1000 per class. UCI original label 1=benign inverted explicitly. No predictions used.',
+    manifest={'seed':seed,'policy':'Frozen before neural training. SHA256 order, one record per unused registrable-domain skeleton; 1000 per class. UCI original label 1=benign inverted explicitly. No predictions used.',
               'limitation':'Historical same-source convenience sample, deliberately balanced; not live-web prevalence, external-source or temporal validation.',
               'rows':len(rows),'labels':counts,'observed_group_count':len(observed),'observed_overlap':len(selected&observed),
               'exclusion_inputs_sha256':hashes,'archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),
@@ -54,4 +54,4 @@ def prepare(output, per_class=1000):
     print(json.dumps({k:v for k,v in manifest.items() if k!='exclusion_inputs_sha256'},indent=2))
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('output');a=p.parse_args();prepare(a.output)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('output');p.add_argument('--seed',default='neural-holdout-v1');a=p.parse_args();prepare(a.output,seed=a.seed)
