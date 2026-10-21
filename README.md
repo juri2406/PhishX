@@ -297,3 +297,15 @@ have unavailable explanations; RF SHAP is supplied only for unchanged RF output.
 No neural SHAP or calibrated probability is claimed. Raw holdouts and weights
 remain ignored and are handed over privately. Final neural-quality promotion,
 browser acceptance and deployment are still open.
+
+
+## Person 3 final-stage review (21 October 2026)
+
+A new independent 20-case fixture has now been reviewed through both real model
+APIs and both browser interfaces, with six new screenshots and an updated
+one-page guide. Application parity passed 20/20 per model; the classical model
+had one benign false positive and two source-labelled misses. The tiny cascade
+fixture does not establish promotion or general accuracy. See
+[the final-stage review](docs/person3-final-review.md) for provenance, defects,
+live-check/outage observations and remaining project gates. Review was performed
+by Codex; no human teammate signature or approval is claimed.

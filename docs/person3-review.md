@@ -1,5 +1,8 @@
 # Person 3 fixture and final review - 7 October 2026
 
+> New live-check/cascade review: [21 October final-stage report](person3-final-review.md).
+> This file preserves the earlier classical-milestone evidence.
+
 The requested Person 3 deliverables are supplied: a separate 20-case fixture,
 recorded browser/HTTP observations, a concise bug list, six actual screenshots
 and a visually checked one-page PDF guide. Codex performed this review at the

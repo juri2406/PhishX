@@ -1,0 +1,23 @@
+{
+  "counts": {
+    "benign": 6,
+    "phishing": 6,
+    "synthetic_homoglyph": 4,
+    "malformed": 4
+  },
+  "real_domain_skeleton_overlap": 0,
+  "selection_policy": "Fixed before predictions; official publisher candidates and hash-sampled unused PhishTank domain groups; no outcome-based substitutions.",
+  "excludes": "All processed CSVs including frozen neural holdout, both observed UCI samples and original Person 3 fixture",
+  "prior_group_count": 23291,
+  "fixture_sha256": "b61d4c09603e15e55b2fbd28400c5a174fca9fd41e5ccffbdb33cfb646990d40",
+  "feed_sha256": "f9217d6eb4e455fc21e1a84af270bc3c9c16827db9e8f154971835f64b6ce593",
+  "neural_weights_sha256": "fc1ae95b2a94435268c0e4e3db454f745844aa59ac843984848e712bef79a4db",
+  "phishing_verification_dates": [
+    "2025-11-13T09:31:40+00:00",
+    "2026-06-14T21:52:35+00:00",
+    "2024-08-19T19:04:09+00:00",
+    "2026-03-06T12:32:30+00:00",
+    "2026-06-08T08:32:50+00:00",
+    "2025-07-01T19:42:15+00:00"
+  ]
+}

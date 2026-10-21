@@ -1,0 +1,41 @@
+model,id,category,url_sha256,http_status,source,application_pass,probability,risk_score,risk_level,model_used,explanation_status,label,label_disagreement,browser_parity_pass,error_code
+classical,benign-1,benign,a4b91618c6c9a02945681ea3323a6f85b177b1ac0cfd722dd20ed596af75648a,200,Reviewed official publisher page,True,0.2327069352718261,23,Low,classical,available,0,False,True,
+classical,benign-2,benign,171cc8d458166d5b8966b49e85403596db2d4bcdf1e56906e410ffe1ac926a10,200,Reviewed official publisher page,True,0.26276457526693764,26,Low,classical,available,0,False,True,
+classical,benign-3,benign,bd26600da04f2e2fabbae4f6cf390a0447306591b25ed3af7990624b4886c051,200,Reviewed official publisher page,True,0.1468261117184087,15,Low,classical,available,0,False,True,
+classical,benign-4,benign,c124c62a5ee3f763f3a3fc202df435b5b3c2c8b1b5f614831ec4f59a3a7c71bc,200,Reviewed official publisher page,True,0.39908041064700883,40,Medium,classical,available,0,False,True,
+classical,benign-5,benign,c85d66e5364b355435941e44a71976b1ecd5f8889566cc3c06baeb2aa9745a3a,200,Reviewed official publisher page,True,0.5013106552878407,50,Medium,classical,available,0,True,True,
+classical,benign-6,benign,d71a7e47377673f01ae945d0ea2e4687b455dc85855654227c199093e3ce8c06,200,Reviewed official publisher page,True,0.24195566245428723,24,Low,classical,available,0,False,True,
+classical,phishing-1,phishing,7b7ecd211fb3724c4443c750c7697dc597e4889e8fd435e0cfac64dc9798a25a,200,phishtank:id-9266503,True,0.6894558856020864,69,High,classical,available,1,False,True,
+classical,phishing-2,phishing,a9db6551586955dcee547bca47c11c0c63a4d9f5db9b6e13fa423c022e42df74,200,phishtank:id-9453305,True,0.4749042314428075,47,Medium,classical,available,1,True,True,
+classical,phishing-3,phishing,1aa9c2411227b599cfa98f8659ba86af6e7a696abbce88c645965932bdd28017,200,phishtank:id-8721653,True,0.9984055411542982,100,Critical,classical,available,1,False,True,
+classical,phishing-4,phishing,4bd794ee6cb9f3079250530794e6afeecd18d7e80f5e7133829885cd588c6e5b,200,phishtank:id-9360684,True,0.8816272149331462,88,Critical,classical,available,1,False,True,
+classical,phishing-5,phishing,a56bdc285033694ab4f7a681a20ab3c36aafd8b91058175f4008ca977987c38f,200,phishtank:id-9447062,True,0.7999731520652755,80,High,classical,available,1,False,True,
+classical,phishing-6,phishing,6d86748965d91df201b96eff7e5cd43d47395f5a2567f4e86941cb5254bb2303,200,phishtank:id-9143531,True,0.316168448470086,32,Medium,classical,available,1,True,True,
+classical,synthetic-1,synthetic_homoglyph,e1f93ea94195ae2acd870d6feeb4db5770b223ca4911875986608eccb347b65f,200,Offline generated Unicode string,True,0.9676266976693335,97,Critical,classical,available,,,True,
+classical,synthetic-2,synthetic_homoglyph,5196f56b25618869c1a5d91bc7dbfe7f3b4015d8301a9e718fbf8b3e7fed315a,200,Offline generated Unicode string,True,0.9708299073346603,97,Critical,classical,available,,,True,
+classical,synthetic-3,synthetic_homoglyph,0bd8deb5065d8581679bb915905d25f6b7f42f4d13578dfef2d5fa7fe8d32fbe,200,Offline generated Unicode string,True,0.9510973962638337,95,Critical,classical,available,,,True,
+classical,synthetic-4,synthetic_homoglyph,1d5484424e610396c1f5bd8dab31934daa87e5f63d45125c06bed5ca2d41507d,200,Offline generated Unicode string,True,0.9763200448986186,98,Critical,classical,available,,,True,
+classical,invalid-1,malformed,d0ee0421cce9521da249939cc55632a0cee6ec36d5f5a1940e0c47800007a0ea,422,Developer invalid input,True,,,,,,,,True,INVALID_REQUEST
+classical,invalid-2,malformed,92e82650cd117ece39b339c5263c01f87b2a7ed044140532e8cf131ca7959aeb,422,Developer invalid input,True,,,,,,,,True,INVALID_URL
+classical,invalid-3,malformed,4d05c9e75c33d4d37af875e1c77f2f1f1667e10bf8c7432dba1429c8582bdf57,422,Developer invalid input,True,,,,,,,,True,INVALID_URL
+classical,invalid-4,malformed,4a0fa35d93e9923b03049cd2f4b986c65989517f501b462a42606c57af79fe1c,422,Developer invalid input,True,,,,,,,,True,INVALID_REQUEST
+cascade,benign-1,benign,a4b91618c6c9a02945681ea3323a6f85b177b1ac0cfd722dd20ed596af75648a,200,Reviewed official publisher page,True,0.17009225487709045,17,Low,cascade,unavailable,0,False,True,
+cascade,benign-2,benign,171cc8d458166d5b8966b49e85403596db2d4bcdf1e56906e410ffe1ac926a10,200,Reviewed official publisher page,True,0.0010922779329121113,0,Low,cascade,unavailable,0,False,True,
+cascade,benign-3,benign,bd26600da04f2e2fabbae4f6cf390a0447306591b25ed3af7990624b4886c051,200,Reviewed official publisher page,True,0.008582726120948792,1,Low,cascade,unavailable,0,False,True,
+cascade,benign-4,benign,c124c62a5ee3f763f3a3fc202df435b5b3c2c8b1b5f614831ec4f59a3a7c71bc,200,Reviewed official publisher page,True,0.3142281472682953,31,Medium,cascade,unavailable,0,False,True,
+cascade,benign-5,benign,c85d66e5364b355435941e44a71976b1ecd5f8889566cc3c06baeb2aa9745a3a,200,Reviewed official publisher page,True,0.0546472929418087,5,Low,cascade,unavailable,0,False,True,
+cascade,benign-6,benign,d71a7e47377673f01ae945d0ea2e4687b455dc85855654227c199093e3ce8c06,200,Reviewed official publisher page,True,0.11675061285495758,12,Low,cascade,unavailable,0,False,True,
+cascade,phishing-1,phishing,7b7ecd211fb3724c4443c750c7697dc597e4889e8fd435e0cfac64dc9798a25a,200,phishtank:id-9266503,True,0.9998878240585327,100,Critical,cascade,unavailable,1,False,True,
+cascade,phishing-2,phishing,a9db6551586955dcee547bca47c11c0c63a4d9f5db9b6e13fa423c022e42df74,200,phishtank:id-9453305,True,0.9991056323051453,100,Critical,cascade,unavailable,1,False,True,
+cascade,phishing-3,phishing,1aa9c2411227b599cfa98f8659ba86af6e7a696abbce88c645965932bdd28017,200,phishtank:id-8721653,True,0.9984055411542982,100,Critical,classical,available,1,False,True,
+cascade,phishing-4,phishing,4bd794ee6cb9f3079250530794e6afeecd18d7e80f5e7133829885cd588c6e5b,200,phishtank:id-9360684,True,0.9999914169311523,100,Critical,cascade,unavailable,1,False,True,
+cascade,phishing-5,phishing,a56bdc285033694ab4f7a681a20ab3c36aafd8b91058175f4008ca977987c38f,200,phishtank:id-9447062,True,0.9998385906219482,100,Critical,cascade,unavailable,1,False,True,
+cascade,phishing-6,phishing,6d86748965d91df201b96eff7e5cd43d47395f5a2567f4e86941cb5254bb2303,200,phishtank:id-9143531,True,0.9957303404808044,100,Critical,cascade,unavailable,1,False,True,
+cascade,synthetic-1,synthetic_homoglyph,e1f93ea94195ae2acd870d6feeb4db5770b223ca4911875986608eccb347b65f,200,Offline generated Unicode string,True,0.9676266976693334,97,Critical,classical,available,,,True,
+cascade,synthetic-2,synthetic_homoglyph,5196f56b25618869c1a5d91bc7dbfe7f3b4015d8301a9e718fbf8b3e7fed315a,200,Offline generated Unicode string,True,0.9708299073346606,97,Critical,classical,available,,,True,
+cascade,synthetic-3,synthetic_homoglyph,0bd8deb5065d8581679bb915905d25f6b7f42f4d13578dfef2d5fa7fe8d32fbe,200,Offline generated Unicode string,True,0.9510973962638339,95,Critical,classical,available,,,True,
+cascade,synthetic-4,synthetic_homoglyph,1d5484424e610396c1f5bd8dab31934daa87e5f63d45125c06bed5ca2d41507d,200,Offline generated Unicode string,True,0.9763200448986183,98,Critical,classical,available,,,True,
+cascade,invalid-1,malformed,d0ee0421cce9521da249939cc55632a0cee6ec36d5f5a1940e0c47800007a0ea,422,Developer invalid input,True,,,,,,,,True,INVALID_REQUEST
+cascade,invalid-2,malformed,92e82650cd117ece39b339c5263c01f87b2a7ed044140532e8cf131ca7959aeb,422,Developer invalid input,True,,,,,,,,True,INVALID_URL
+cascade,invalid-3,malformed,4d05c9e75c33d4d37af875e1c77f2f1f1667e10bf8c7432dba1429c8582bdf57,422,Developer invalid input,True,,,,,,,,True,INVALID_URL
+cascade,invalid-4,malformed,4a0fa35d93e9923b03049cd2f4b986c65989517f501b462a42606c57af79fe1c,422,Developer invalid input,True,,,,,,,,True,INVALID_REQUEST

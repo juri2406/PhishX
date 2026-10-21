@@ -82,3 +82,13 @@ bash scripts/start-dev.sh --live
 ```
 
 Open http://127.0.0.1:5173, scan a URL, then choose **Run live checks**.
+
+
+## Person 3 browser review update
+
+The new default/live-check and opt-in research interfaces have now received a
+focused desktop/mobile browser pass and independent fixture review. See
+[Person 3 final-stage review](person3-final-review.md). Model regressions, the
+unavailable-signal scope copy, result-focus follow-up and Docker/hosting remain
+open. The earlier "not performed" statements above describe the original
+Person 2 session, not the current evidence.

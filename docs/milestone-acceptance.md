@@ -41,3 +41,12 @@ assessment requires an independent human reviewer or meeting attendance,
 that human confirmation remains to be supplied by the team; this report does
 not substitute an invented signature for it. Research limitations are retained
 rather than silently changing the frozen model after fixture outcomes.
+
+
+## Later-stage review, 21 October 2026
+
+The 60% classical milestone remains a historical acceptance record. New live
+checks and the opt-in neural research provider are reviewed separately in
+[Person 3 final-stage report](person3-final-review.md). That report retains open
+model, UX and deployment issues; it is not a claim that the full project is
+production-ready.

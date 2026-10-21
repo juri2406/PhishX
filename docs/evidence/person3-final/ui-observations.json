@@ -1,0 +1,45 @@
+{
+  "keyboardEnter": {
+    "focused": "",
+    "overflow": false,
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "submitDisabledWithPopulatedUrl": false
+  },
+  "mobileValidation": {
+    "alert": "Enter a URL with an http:// or https:// scheme, without spaces (maximum 2048 characters).",
+    "height": 844,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "liveSuccess": "Live domain checks\n\nOptional checks contact the target server and registration services. Only headers are requested from the target; page content is not analyzed. These observations do not change the model score.\n\nRefresh live checks\nDNS: available · 104.20.23.154, 172.66.147.243\n\nPublic DNS answers at lookup time.\n\nTLS validity: available · true\n\nHTTPS certificate chain and hostname verified.\n\nRedirects: available · 0\n\nHEAD redirect hops observed; servers may treat browser GET requests differently.\n\nDomain age: available · 11391\n\nDays since RDAP registration; registration is not a safety verdict.\n\nChecked: 21/10/2026, 21:50:07. A successful check does not establish that a site is safe.\n\nObserved redirect chain",
+  "privateTargetError": "Use a public HTTP(S) URL without credentials or a non-standard port.",
+  "cascadeDisabledLive": "Live domain checks\n\nOptional checks contact the target server and registration services. Only headers are requested from the target; page content is not analyzed. These observations do not change the model score.\n\nLive checks are disabled on this backend.",
+  "mobileCascade": {
+    "height": 844,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "httpOnly": "Live domain checks\n\nOptional checks contact the target server and registration services. Only headers are requested from the target; page content is not analyzed. These observations do not change the model score.\n\nRefresh live checks\nDNS: available · 104.20.23.154, 172.66.147.243\n\nPublic DNS answers at lookup time.\n\nTLS validity: not_applicable · false\n\nThe submitted URL uses HTTP.\n\nRedirects: available · 0\n\nHEAD redirect hops observed; servers may treat browser GET requests differently.\n\nDomain age: available · 11391\n\nDays since RDAP registration; registration is not a safety verdict.\n\nChecked: 21/10/2026, 21:52:25. A successful check does not establish that a site is safe.\n\nObserved redirect chain",
+  "unavailableDomain": "Live domain checks\n\nOptional checks contact the target server and registration services. Only headers are requested from the target; page content is not analyzed. These observations do not change the model score.\n\nRefresh live checks\nDNS: unavailable\n\nDNS or initial connection could not complete safely.\n\nTLS validity: unavailable\n\nCertificate validation or connection did not complete.\n\nRedirects: unavailable\n\nA target was blocked, unreachable, or timed out. No page body was read.\n\nDomain age: unavailable\n\nRegistry registration date unavailable or lookup timed out.\n\nChecked: 21/10/2026, 21:52:27. A successful check does not establish that a site is safe.",
+  "offline": {
+    "notice": "Backend unreachable. Start the API, then retry. Retry connection",
+    "error": "The API returned an unreadable response. Check the backend and retry."
+  },
+  "recovery": 0,
+  "recoveredScan": true,
+  "forcedTimeoutLoading": {
+    "buttonDisabled": true,
+    "status": "Checking DNS, TLS, redirects and registration data…"
+  },
+  "forcedTimeoutError": "Live checks timed out. You can retry; your model result is unchanged.",
+  "liveRetryRecovered": true,
+  "timeoutMethod": "Deliberately SIGSTOP-paused only the review API, verified the client timeout, then SIGCONT-resumed and retried. Not a latency benchmark.",
+  "keyboardFocusConclusion": "Enter submission succeeded; retained result focus could not be established from the automated focus read.",
+  "liveLoadingReadAfterCompletion": {
+    "liveButtonDisabled": false,
+    "status": "DNS: available · 104.20.23.154, 172.66.147.243Public DNS answers at lookup time.TLS validity: available · trueHTTPS certificate chain and hostname verified.Redirects: available · 0HEAD redirect hops observed; servers may treat browser GET requests differently.Domain age: available · 11391Days since RDAP registration; registration is not a safety verdict.Checked: 21/10/2026, 21:50:07. A successful check does not establish that a site is safe.Observed redirect chainhttps://example.com · HTTP 200"
+  }
+}
