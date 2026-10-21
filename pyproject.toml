@@ -9,6 +9,9 @@ description = "Offline URL features, Unicode brand matching and a classical phis
 requires-python = ">=3.10"
 dependencies = ["scikit-learn>=1.5,<2", "joblib>=1.4,<2", "idna>=3.7,<4", "tldextract>=5.1,<6"]
 
+[project.optional-dependencies]
+cnn = ["torch>=2.6,<3"]
+
 [project.scripts]
 phishx = "phishx.cli:main"
 

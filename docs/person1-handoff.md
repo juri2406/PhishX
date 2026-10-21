@@ -184,3 +184,10 @@ For the full Unicode test suite on Windows, run:
 This avoids Windows legacy default encoding in a Person 1 CSV test.
 
 Parser errors keep HTTP 422 and `INVALID_URL`. The main message gives hostname/encoding recovery instructions; `error.details` retains the original parser reason under field `url`.
+# CNN / cascade extension handoff (21 October 2026)
+
+See [person1-cnn.md](person1-cnn.md) for the new model-owner adapter and commands.
+The existing API/provider contract below is unchanged. Person 2 integration
+is pending; CNN scores must not reuse RF SHAP as their explanation. A trained,
+real-data comparison is pending matching split and RF artifact recovery.
+

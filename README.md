@@ -11,7 +11,9 @@ or meeting attendance is claimed. See [the evidence index](docs/milestone-accept
 Start with [the one-page guide](docs/person3-user-guide.pdf). Model binaries and
 the full review fixture are shared separately in trusted local handoff ZIPs.
 The experimental model has known false positives and misses, and its output
-is uncalibrated. Later cascade, live lookups and deployment remain future work.
+is uncalibrated. The new [CNN/cascade workflow](docs/person1-cnn.md) is implemented
+as an ML extension. Real-data training, application integration, live lookups
+and deployment remain pending.
 
 ## Revised frozen classical model — 7 October 2026
 
@@ -259,3 +261,11 @@ For the full Unicode test suite on Windows, run:
 This avoids Windows legacy default encoding in a Person 1 CSV test.
 
 Parser errors keep HTTP 422 and `INVALID_URL`. The main message gives hostname/encoding recovery instructions; `error.details` retains the original parser reason under field `url`.
+# Person 1 CNN / cascade extension (21 October 2026)
+
+Character-CNN training, validation-selected RF/CNN routing, frozen comparison
+and error-analysis outputs are implemented. See [the CNN workflow](docs/person1-cnn.md)
+for installation, data requirements, commands, limitations and Person 2 handoff.
+Real-data training/comparison is pending recovery of the matching splits and RF
+artifact. This extension does not change the API's existing classical behavior.
+
