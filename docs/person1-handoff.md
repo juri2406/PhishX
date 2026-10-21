@@ -1,5 +1,9 @@
 # Person 1 → Person 2 handoff
 
+**Current default:** release v7; see the current contract below and
+`project-completion.md`. The older sections describe classical milestone history.
+
+
 ## Revised frozen classical model — 7 October 2026
 
 The new local review model is `artifacts/revised-run06/classical.joblib`, version
@@ -233,7 +237,7 @@ live-check/outage observations and remaining project gates. Review was performed
 by Codex; no human teammate signature or approval is claimed.
 
 
-## Final local-deployment work in progress
+## Earlier completion work (historical)
 
 The completion branch adds optional `explanation_method` and `explanation_audit`
 fields. A release provider can compute exact four-component Shapley values
@@ -244,21 +248,22 @@ model output within 1e-5. This is distinct from classical numeric-feature
 TreeSHAP. No explanation is fabricated when validation fails.
 Health adds `model_profile` and `model_notice` for truthful provider identification.
 Failed candidates remain blocked by their recorded promotion gates. See
-`docs/evidence/completion` for the failed experiments; deployment verification
-and final release selection are still in progress.
+`docs/evidence/completion` for the failed experiments; the current v7 selection and verification supersede this earlier status.
 
-## October 2026 local Docker and research contract
 
-`bash scripts/demo.sh` serves the classical RF v6 provider at localhost:8080 using
-its separate private handoff. See `docs/project-completion.md` and `deploy/README.md`.
-No completion cascade candidate passed every quality gate. Do not promote them.
-The scan contract adds optional `explanation_method` and `explanation_audit`.
-Classical responses use `tree_shap`. The guarded experimental provider uses
-`exact_url_component_shapley`: signed protocol/host/path/query contributions,
-16 actual model evaluations, explicit placeholder baseline and additivity audit.
-Fragments remain fixed. This is a model explanation, not a safety guarantee.
-Health includes model profile/notice where provided. The experimental ranked
-provider exposes the observed frozen domain rank as learned context, not a benign
-verdict override. Tranco acquisition postdates historical labels; no temporal
-validation claim is supported. Experimental source hashes and weights are pinned;
-model/rank binaries and raw datasets must remain outside Git.
+## Release v7 integration contract
+
+Both Docker and `scripts/start_dev.py` now select `ml.completion_integration:create_provider`,
+`PHISHX_RELEASE_PATH=artifacts/release-v7` and its classical weight file. The private
+handoff contains the RF, CNN, learned fusion, frozen ranking context, metadata,
+policy and passing evaluation report. The factory recomputes registered gates
+from measured confusion counts and verifies model/feature hashes before use.
+Health reports `model_profile=release_cascade`. Scan responses retain existing
+fields and add optional `explanation_method` and `explanation_audit`; v7 uses
+`exact_url_component_shapley` across the full prediction pipeline, with explicit
+reference URL, baseline, signed protocol/host/path/query contributions and residual.
+Observed popularity rank is learned frozen context, not a benign override. Labels
+and risk bands remain unchanged. See the current report for sampled results and
+historical-label/ranking timing limits. Earlier candidate failures remain recorded.
+
+Human acceptance is pending the user report in `human-acceptance.md`.

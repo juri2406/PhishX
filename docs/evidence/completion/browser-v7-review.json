@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-21",
+  "model": "cascade-release-v7-a89fff3e7d31",
+  "target": "http://127.0.0.1:8080/",
+  "reviewer": "Codex automated browser review; not human acceptance",
+  "observations": {
+    "model_path": "RF + Char-CNN",
+    "cascade": "Connected",
+    "synthetic_score": 100,
+    "displayed_output_percent": 99.9,
+    "normalized_host": "xn--pypal-4ve.com",
+    "signed_contributions_visible": true,
+    "focus_after_scan": "Scan result",
+    "next_tab": "Run live checks",
+    "mobile_viewport": 390,
+    "mobile_document_width": 390
+  },
+  "screenshots": [
+    "docker-v7-desktop.png",
+    "docker-v7-mobile.png"
+  ]
+}

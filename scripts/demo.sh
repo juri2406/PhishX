@@ -23,10 +23,12 @@ else
 fi
 case "${1:-start}" in
   start)
-    if [[ ! -f artifacts/revised-run06/classical.joblib ]]; then
-      echo 'Extract the trusted PhishX final model handoff into this repository first.' >&2
-      exit 1
-    fi
+    for file in classical.joblib charcnn.pt cnn-metadata.json fusion.joblib rank-context.joblib cascade-policy.json release-evaluation.json; do
+      if [[ ! -f "artifacts/release-v7/$file" ]]; then
+        echo "Missing artifacts/release-v7/$file. Extract the trusted release-v7 private model handoff first." >&2
+        exit 1
+      fi
+    done
     "${compose[@]}" up -d --build --wait --wait-timeout 180
     echo 'PhishX is ready at http://127.0.0.1:8080'
     ;;

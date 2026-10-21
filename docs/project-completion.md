@@ -1,94 +1,106 @@
-# Local Docker demo and remaining model work
+# PhishX release v7: local academic demo
 
-The local application uses the existing classical RF v6 model, real TreeSHAP,
-shared URL parsing, Unicode skeleton/brand comparison, and optional DNS, TLS,
-redirect and RDAP checks. Live checks require an explicit button click and do not
-change the text model's score. Scores are uncalibrated model outputs, not the
-probability that a website is safe. The application does not read target page bodies.
+The frozen candidate `cascade-release-v7-a89fff3e7d31` passed every registered
+model-quality gate and is selected for the local Docker demo. Docker and developer
+launchers now select this provider. Runtime and human acceptance are tracked below;
+passing sampled evaluation does not certify production or whole-web accuracy.
 
-## Run on this Mac
+## Run and share
 
-From the repository root run `bash scripts/demo.sh`, then open
-http://127.0.0.1:8080. Use `bash scripts/demo.sh status`, `logs`, or `stop` to manage
-it. Docker Desktop or Docker/Colima and Compose must be installed. The script uses
-a dedicated `phishx` Colima VM when needed. The backend is internal to Compose;
-only localhost port 8080 is published. A trusted private model handoff must be at
-`artifacts/revised-run06/classical.joblib`; model binaries and raw data stay out of Git.
+Run `bash scripts/demo.sh` from the repository root and open
+http://127.0.0.1:8080. Manage it with `bash scripts/demo.sh status`, `logs`, or `stop`.
+Docker Desktop or Docker/Colima with Compose is required. Only localhost port 8080
+is published. The backend runs as nonroot with a read-only root filesystem.
+Live checks run only after an explicit click and never change the model score.
 
-## Research work implemented, not released
+Model binaries and raw data stay out of Git. Extract the trusted private v7
+handoff at the repository root into `artifacts/release-v7/`, and verify its
+checksums against `docs/evidence/completion/release-v7-artifacts.json`.
+Earlier classical handoffs are insufficient for v7. The old run06 instructions
+are historical and remain useful only for explicit classical-model comparisons.
 
-RF/CharCNN integration, learned fusion, popularity context and exact four-component
-URL Shapley explanations are implemented separately. The release factory refuses
-candidates whose frozen quality checks fail. None of the completion candidates
-passed every gate, so the Docker demo retains the classical provider. This is an
-academic prototype, and the entire model-quality objective is still incomplete.
+## Fresh measured evaluation
 
-Measured external cohort results at classification threshold 0.5:
+The plan was frozen before fitting/evaluation. Candidate selection used 19,538
+fit records and 4,716 domain-disjoint review records; review groups have zero
+overlap with upstream RF/CNN training/selection groups. The frozen v4 RF and CNN
+were retained. A learned context fusion model uses their outputs, 24 numeric URL
+features and frozen Tranco popularity context. Seeded training-only masking of
+rank information at rate 0.25 was selected on review data; final inference uses
+actual frozen context, never a whitelist or forced benign verdict.
 
-| Candidate | Benign / phishing rows | Phishing recall | False-positive rate |
-| --- | --- | --- | --- |
-| 02 | 148 / 200 | 84.0% | 8.78% |
-| v3 | 178 / 200 | 98.5% | 16.29% |
-| v4 | 166 / 200 | 92.5% | 6.02% |
-| v5 | 157 / 200 | 99.0% | 47.77% |
-| v6 | 153 / 200 | 97.0% | 5.23% |
+Threshold: 0.5. Labels: 0 benign, 1 phishing. All six quality checks passed.
 
-The predeclared external false-positive gate is at most 5%, with no worsening
-against the RF baseline. v6 produced 8 false positives and 6 false negatives;
-the baseline produced 7 and 34 on that cohort. Its separate balanced historical
-UCI sample had 13 false positives and 7 false negatives among 2,000 rows.
-These are convenience cohorts, not population or future-web accuracy estimates.
-Later candidates reused earlier inspected cohorts as development data; fresh
-candidate holdouts excluded all previously observed domain skeletons. The repeated
-research revisions are disclosed and are not independent confirmations.
+| Fresh cohort | Model | Benign / phishing | False positives / false negatives | Recall | FPR |
+| --- | --- | --- | --- | --- | --- |
+| Historical UCI | Prior RF v6 | 1000 / 1000 | 128 / 68 | 93.2% | 12.8% |
+| Historical UCI | v7 | 1000 / 1000 | 1 / 11 | 98.9% | 0.10% |
+| External sources | Prior RF v6 | 364 / 200 | 13 / 30 | 85.0% | 3.57% |
+| External sources | v7 | 364 / 200 | 2 / 4 | 98.0% | 0.55% |
 
-v6 uses frozen Tranco Top 1M list 262W9 acquired on 2026-10-21 as a learned feature,
-not a whitelist or ownership guarantee. This context postdates the historical
-phishing labels, so the experiment does not establish forward temporal validity.
-The rank list and model weights are private local artifacts. Source:
-https://tranco-list.eu/. Historical PhishTank labels are not current page checks.
+Gates: UCI recall >=90%, external recall >=88%, each FPR <=5%, recall decrease
+against the prior RF <=2 percentage points on each cohort, and no FPR worsening.
+Promotion recomputes these gates from confusion counts and rejects inconsistent
+summaries or relaxed thresholds. Artifacts and inference feature code are hashed.
+The complete measured report and predeclared plan are in `docs/evidence/completion/`.
 
-The experimental explanation computes the exact Shapley values of protocol, host,
-path and query across 16 URL combinations, with fragment held constant. Its
-reference `http://a.b` is a placeholder, not a benign example. It explains the
-model's output relative to that reference, not website safety or causal effects.
-The default Docker model continues using feature-level TreeSHAP.
+Fresh UCI groups exclude 44,433 previously observed domain skeletons. The external
+cohort excludes all 46,433 previously observed groups including that UCI sample;
+it contains 40 new official organization domain groups plus 200 new phishing groups.
+The fixed 80-seed list covers international institutions, universities, museums,
+libraries and public services; first 40 eligible unused groups, up to 10 paths
+each, were selected before predictions. No outcome-based replacements were made.
 
-## Remaining acceptance work
+## Limits and earlier failures
 
-Improve generalization using a broader independently labeled benign corpus and
-new untouched evaluation cohorts. Do not tune thresholds on the failed final
-cohorts or relax the gates to label them a success. Validate and promote a frozen
-candidate only after all gates pass, then repeat Docker and browser checks for
-that exact candidate. A human teammate's final acceptance has not been recorded.
-Remote CI and GitHub publication must be verified separately from local checks.
+These are convenience samples. Benign labels derive from reviewed owning-domain
+navigation and HTTP/title/hash provenance, not proof that every page is safe.
+Phishing labels derive from the historical 7 October PhishTank snapshot; target
+pages were not visited. UCI is historical and deliberately balanced. Scores are
+uncalibrated, not live-web risk probabilities. The two external false positives
+and four misses remain genuine errors and were not removed from the report.
 
-## Verified local execution
+Tranco list 262W9 was acquired on 21 October 2026, after historical URL labels;
+this is not forward-temporal validation. Domain rank is learned context, not
+ownership or a safety override. Ranking source: https://tranco-list.eu/.
+Raw ranking data and model binaries are private handoff material outside Git.
 
-On 2026-10-21 the Linux backend and nginx frontend containers built and ran on
-this Mac using the dedicated Colima VM. Both run as nonroot users; the backend
-root filesystem is read-only. Only `127.0.0.1:8080` is published.
+Earlier inspected holdouts became development data for later candidates. Earlier
+external FPRs were 8.78% (02), 16.29% (v3), 6.02% (v4), 47.77% (v5), and 5.23%
+(v6); all failed promotion and their reports remain available. Repeated revisions
+are disclosed; v7 is not an independent replication or a universal accuracy claim.
+Holdout manifests retain the legacy phrase "Frozen before neural training": for
+v7, the RF/CNN encoders were already frozen, and the holdouts were frozen before
+fusion fitting and final prediction. Old source hashes require matching revisions;
+never edit a recorded hash to load incompatible model code.
 
-Local checks: 83 Python tests plus 11 subtests passed; frontend production build
-passed. Real HTTP checks verified standalone/deployed model and SHAP parity,
-malformed input rejection, private live-target rejection, security headers and
-blocked model/dotfile downloads. All four example.com live observations returned
-available. These are point-in-time observations, not guaranteed future availability.
-See `docs/evidence/completion/docker-http.json` for actual outputs and timings.
-One smoke input, this project's legitimate GitHub URL, scored 55/100; do not
-interpret model scores as verified labels or certified safety.
+## Explanations and live checks
 
-Browser checks verified the synthetic lookalike result, real model contributions,
-focus moving to the result and the next Tab reaching live checks, and desktop/
-390px mobile layout without horizontal overflow. Actual screenshots and the
-review record are under `docs/evidence/completion/`. This is an agent review;
-no human signature is implied. The private local model-only handoff is
-`artifacts/handoff/PhishX_local_Docker_model.zip`, extracted at the repository root.
-It must be shared separately from Git using a trusted channel.
+Every v7 explanation evaluates the full frozen pipeline on 16 URL combinations
+and computes exact Shapley values for protocol, host, path and query. Fragment is
+held constant. The placeholder reference `http://a.b` is not labeled benign.
+Signed contributions explain model-output differences relative to that reference;
+they do not establish causation, ownership or website safety. The API exposes the
+method, reference, baseline, contributions and additivity residual. Classical
+TreeSHAP is not substituted for a CNN/fusion prediction.
 
-The holdout manifests' legacy phrase "Frozen before neural training" should be
-read as frozen before that candidate's fitting/evaluation: v5/v6 use an already
-frozen v4 encoder. The manifests are preserved verbatim as evidence. Earlier
-candidate code hashes refer to their source revision, not necessarily current
-HEAD. Re-running old policies requires matching source and private artifacts;
-never alter their recorded hashes to make an incompatible provider start.
+Optional DNS/TLS/redirect/RDAP checks are separately requested; only target headers
+are fetched, without analyzing page content. Their statuses may be unavailable.
+Private/internal targets and unsafe redirect destinations are rejected.
+
+## Acceptance status
+
+The earlier classical Docker/browser evidence is preserved as historical evidence.
+The v7 Docker images built and reached healthy status. Real HTTP scans matched
+native macOS predictions and all four Shapley contributions in the Linux backend;
+additivity residuals were below 1e-5. Malformed URLs, private live targets,
+security headers, model/dotfile protection and example.com live observations
+passed. The measured report is `docker-v7-http.json`.
+
+The tracked suite passed 86 tests plus 11 subtests on macOS and again inside the Linux backend image with networking disabled. The frontend production build passed. Browser verification
+confirmed v7 connected, the real synthetic-lookalike result, signed four-component
+explanations, result focus/next Tab, and no horizontal overflow at 390px. Actual
+v7 screenshots and an agent review record are stored separately from old evidence. Human acceptance
+is pending the user's actual H1-H8 checks in `docs/human-acceptance.md`. Remote CI
+status must be confirmed against the actual GitHub run, separately from local tests.
+No human signature or production readiness is claimed.

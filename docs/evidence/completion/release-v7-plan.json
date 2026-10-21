@@ -1,0 +1,16 @@
+{
+  "candidate": "release-v7",
+  "frozen_at": "2026-10-21T18:15:16.582325+00:00",
+  "gates": {
+    "external_max_false_positive_rate": 0.05,
+    "each_holdout_max_recall_drop_against_rf": 0.02,
+    "uci_min_recall": 0.9,
+    "uci_max_false_positive_rate": 0.05,
+    "external_min_recall": 0.88
+  },
+  "development_pool_sha256": "3823a6d288d08fa7db59b67986c7560b7c87ae561ce7405a1e09074a0e1f86cc",
+  "external_seed_list_sha256": "857831113e2108a7bd7a68dba3525138b61946b07aa5525088eb1d883359df9d",
+  "selection": "Fixed v4 RF/CNN encoders; expanded previously observed development data. Group-disjoint meta review excludes upstream encoder train/validation. HistGradientBoosting leaves15/31, weights1/3/10, rank masking0/.25/.5, 150 rounds; validation balanced accuracy, preferring FPR<=.02 and recall>=.95. No test-driven tuning.",
+  "evaluation": "New UCI1000/class; new external first40 successful unused official institution domain groups, max10 URLs each, 200 historical PhishTank unused groups. Freeze before candidate fit/prediction; no outcome-based substitution.",
+  "acceptance": "Every registered gate must pass. User performs human acceptance; no agent signature substituted."
+}

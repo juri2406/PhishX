@@ -1,19 +1,15 @@
-# PhishX: classical phishing scanner
+# PhishX: explainable URL phishing research demo
 
-The shared Person 1 detection package and Person 2 application are integrated:
-FastAPI, React, the frozen classical model and verified SHAP explanations.
-The remaining Person 2 run06 checks and Person 3 fixture/review materials are
-complete as assistant-performed technical work. No human teammate signature
-or meeting attendance is claimed. See [the evidence index](docs/milestone-acceptance.md),
-[revised application acceptance](docs/person23-acceptance.md) and
-[separate fixture review](docs/person3-review.md).
+The local demo selects release v7, a frozen RF/character-CNN/context pipeline that
+passed the registered fresh-cohort gates. Run `bash scripts/demo.sh` and open
+http://127.0.0.1:8080. Read [current model evidence and limits](docs/project-completion.md),
+[Docker setup](deploy/README.md), and [human acceptance](docs/human-acceptance.md).
+Scores are uncalibrated; the model still makes mistakes. Live network observations
+are optional and separate from model scoring. Private weights/raw data stay out
+of Git. Human acceptance and GitHub CI require their own recorded evidence.
 
-Start with [the one-page guide](docs/person3-user-guide.pdf). Model binaries and
-the full review fixture are shared separately in trusted local handoff ZIPs.
-The experimental model has known false positives and misses, and its output
-is uncalibrated. Optional live lookups are implemented separately from scoring;
-see [next-stage status](docs/person2-next-stage.md). An opt-in research cascade is now available but has not passed promotion;
-verified deployment remains open.
+The sections below document earlier classical milestones and their historical
+measurements; they do not describe the current v7 default.
 
 ## Revised frozen classical model — 7 October 2026
 
@@ -325,17 +321,17 @@ Failed candidates remain blocked by their recorded promotion gates. See
 `docs/evidence/completion` for the failed experiments; deployment verification
 and final release selection are still in progress.
 
-## Local Docker demo (October 2026 completion work)
+## Release v7 integration contract
 
-Run `bash scripts/demo.sh` and open http://127.0.0.1:8080. See
-[deployment instructions](deploy/README.md) and [current completion status](docs/project-completion.md).
-The demo uses the existing classical RF v6 model; experimental cascade candidates
-have not passed all release gates and are not promoted. Model binaries remain a
-private handoff, outside Git. The scan contract now includes optional
-`explanation_method` and `explanation_audit` fields. Classical responses use
-`tree_shap`; the guarded research provider supports `exact_url_component_shapley`
-and signed protocol/host/path/query contributions relative to its explicit
-placeholder reference. Health also reports model profile and notice where supplied.
-The research provider can expose the observed frozen domain popularity rank;
-that feature is learned context, not a whitelist. Full-project quality acceptance
-is still open; see the measured failures in the status document.
+Both Docker and `scripts/start_dev.py` now select `ml.completion_integration:create_provider`,
+`PHISHX_RELEASE_PATH=artifacts/release-v7` and its classical weight file. The private
+handoff contains the RF, CNN, learned fusion, frozen ranking context, metadata,
+policy and passing evaluation report. The factory recomputes registered gates
+from measured confusion counts and verifies model/feature hashes before use.
+Health reports `model_profile=release_cascade`. Scan responses retain existing
+fields and add optional `explanation_method` and `explanation_audit`; v7 uses
+`exact_url_component_shapley` across the full prediction pipeline, with explicit
+reference URL, baseline, signed protocol/host/path/query contributions and residual.
+Observed popularity rank is learned frozen context, not a benign override. Labels
+and risk bands remain unchanged. See the current report for sampled results and
+historical-label/ranking timing limits. Earlier candidate failures remain recorded.

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-21",
+  "model": "cascade-release-v7-a89fff3e7d31",
+  "macos_pytest": {
+    "passed": 86,
+    "subtests_passed": 11
+  },
+  "linux_container_pytest": {
+    "passed": 86,
+    "subtests_passed": 11,
+    "network": "none",
+    "root_filesystem": "read-only"
+  },
+  "frontend_production_build": "passed",
+  "remote_github_ci": "unverified: Git CLI authentication unavailable; GitHub connector returned 404",
+  "human_acceptance": "pending user report",
+  "known_warning": "Starlette TestClient warns httpx usage is deprecated; no failing tests."
+}

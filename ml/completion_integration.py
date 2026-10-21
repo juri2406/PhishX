@@ -40,10 +40,10 @@ class ReleaseProvider(CascadeProvider):
 
 
 def create_provider():
-    directory=Path(os.environ.get('PHISHX_RELEASE_PATH','artifacts/release-v3'))
+    directory=Path(os.environ.get('PHISHX_RELEASE_PATH','artifacts/release-v7'))
     release=json.loads((directory/'release-evaluation.json').read_text())
-    if not release.get('all_quality_gates_passed'):
-        raise ValueError('Release candidate did not pass its registered quality gates')
+    from phishx.release import validate_release_report
+    validate_release_report(release)
     provider=ReleaseProvider(directory,Path(os.environ['PHISHX_MODEL_PATH']))
     if release.get('policy') != provider.cascade.policy:
         raise ValueError('Release evaluation does not match the frozen policy')

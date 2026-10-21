@@ -1,0 +1,13 @@
+{
+  "version": "cascade-release-v7-a89fff3e7d31",
+  "files": {
+    "artifacts/release-v7/classical.joblib": "1756a33e0599c5bb2f5fe4dc6ef9d28421fcbd957dc4bfe3186024cfb156c7a3",
+    "artifacts/release-v7/charcnn.pt": "70ef8bb68f5581bd23e43b1446cb8f9d31e3b9bc4b9312f1049341fd8bb0d122",
+    "artifacts/release-v7/cnn-metadata.json": "62718a43210792cd47822ca08757e23c6fe492e0d2c0db844d0156ccfc555f25",
+    "artifacts/release-v7/fusion.joblib": "18c8c66fe6cddc98a263c924d52a8ffbf5b406c374c36a97ed58d9d803c6d184",
+    "artifacts/release-v7/rank-context.joblib": "7db38ede4167a9cea01d097d2ee5428479812e6fc3347f69b24bd7777478a020",
+    "artifacts/release-v7/cascade-policy.json": "e37433adf1bdd389c9fecb3c1783c33d2a36a202617373a2b7c10a15c3d87173",
+    "artifacts/release-v7/release-evaluation.json": "59a6bc3043cb1ffdca0c1a123c7ec255d7777d0ace624de445144ceac1655f9a"
+  },
+  "scope": "Trusted private local academic demo handoff; weights and frozen ranking context excluded from Git."
+}

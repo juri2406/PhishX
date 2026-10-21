@@ -1,0 +1,106 @@
+{
+  "recorded_at": "2026-10-21T18:19:48.026210+00:00",
+  "base": "http://127.0.0.1:8080",
+  "health": {
+    "status": "ok",
+    "ready": true,
+    "mode": "model",
+    "model_version": "cascade-release-v7-a89fff3e7d31",
+    "cascade_status": "available",
+    "model_profile": "release_cascade",
+    "model_notice": "Local evaluation release: RF/character-CNN cascade with frozen context. Scores are uncalibrated and can be wrong; see the evaluation report.",
+    "live_signals_enabled": true
+  },
+  "real_model_checks": [
+    {
+      "url": "https://example.com/",
+      "probability": 0.011405276542262142,
+      "risk_score": 1,
+      "model_used": "cascade",
+      "explanation_method": "exact_url_component_shapley",
+      "standalone_explanation_parity": true,
+      "additivity_residual": 0.0,
+      "timings_ms": {
+        "inference": 60.329,
+        "explanation": 21.85,
+        "total": 82.18
+      }
+    },
+    {
+      "url": "https://p\u0430ypal.com/login",
+      "probability": 0.9991169564936532,
+      "risk_score": 100,
+      "model_used": "cascade",
+      "explanation_method": "exact_url_component_shapley",
+      "standalone_explanation_parity": true,
+      "additivity_residual": 3.469446951953614e-18,
+      "timings_ms": {
+        "inference": 16.813,
+        "explanation": 19.728,
+        "total": 36.541
+      }
+    },
+    {
+      "url": "https://github.com/juri2406/PhishX",
+      "probability": 0.005239997311043435,
+      "risk_score": 1,
+      "model_used": "cascade",
+      "explanation_method": "exact_url_component_shapley",
+      "standalone_explanation_parity": true,
+      "additivity_residual": 0.0,
+      "timings_ms": {
+        "inference": 29.857,
+        "explanation": 18.117,
+        "total": 47.974
+      }
+    }
+  ],
+  "live_checks": {
+    "checks": [
+      {
+        "name": "DNS",
+        "status": "available",
+        "value": "104.20.23.154, 172.66.147.243",
+        "message": "Public DNS answers at lookup time."
+      },
+      {
+        "name": "TLS validity",
+        "status": "available",
+        "value": true,
+        "message": "HTTPS certificate chain and hostname verified."
+      },
+      {
+        "name": "Redirects",
+        "status": "available",
+        "value": 0,
+        "message": "HEAD redirect hops observed; servers may treat browser GET requests differently."
+      },
+      {
+        "name": "Domain age",
+        "status": "available",
+        "value": 11391,
+        "message": "Days since RDAP registration; registration is not a safety verdict."
+      }
+    ],
+    "redirect_chain": [
+      {
+        "scheme": "https",
+        "host": "example.com",
+        "http_status": 200
+      }
+    ],
+    "checked_at": "2026-10-21T18:19:48.021260+00:00",
+    "affects_model_score": false
+  },
+  "checks": {
+    "root_served": true,
+    "same_origin_proxy": true,
+    "model_parity": true,
+    "additivity": true,
+    "malformed_rejected": true,
+    "private_targets_blocked": true,
+    "security_headers": true,
+    "model_and_dotfiles_not_served": true
+  },
+  "scope": "Real local nginx+Linux containers; model latency is actual backend timing, not a fabricated estimate."
+}

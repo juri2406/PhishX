@@ -19,9 +19,9 @@ for port in (8000, 5173):
             check.bind(('127.0.0.1', port))
         except OSError:
             sys.exit(f'Port {port} is occupied. Stop its existing terminal with Ctrl+C, or open http://127.0.0.1:5173 if PhishX is already running. Inspect with: lsof -nP -iTCP:{port} -sTCP:LISTEN')
-model = root / 'artifacts/revised-run06/classical.joblib'
+model = root / 'artifacts/release-v7/classical.joblib'
 if not model.is_file():
-    sys.exit('Missing trusted model handoff: artifacts/revised-run06/classical.joblib')
+    sys.exit('Missing trusted model handoff: artifacts/release-v7/classical.joblib')
 pnpm = shutil.which('pnpm')
 if not pnpm:
     fallback = Path.home() / '.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/pnpm'
@@ -29,7 +29,7 @@ if not pnpm:
 if not pnpm:
     sys.exit('pnpm is not available. Install pnpm or add its launcher to PATH.')
 env = dict(os.environ, PYTHONPATH=os.pathsep.join(['ml', '.']), PHISHX_MODE='model',
-           PHISHX_PROVIDER='ml.integration:create_provider', PHISHX_MODEL_PATH=str(model),
+           PHISHX_PROVIDER='ml.completion_integration:create_provider', PHISHX_RELEASE_PATH=str(root/'artifacts/release-v7'), PHISHX_MODEL_PATH=str(model),
            PHISHX_LIVE_SIGNALS='1' if args.live else '0')
 children = []
 def stop(*_):

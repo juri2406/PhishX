@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-10-21T18:21:13.276765+00:00",
+  "development_and_encoder_group_count": 44425,
+  "uci_groups": 2000,
+  "external_groups": 240,
+  "uci_development_overlap": 0,
+  "external_development_overlap": 0,
+  "between_holdout_overlap": 0,
+  "scope": "Shared registrable-domain skeleton groups; ranking context is intentionally global auxiliary data, not supervised labels."
+}
