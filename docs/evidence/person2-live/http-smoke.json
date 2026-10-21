@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-21T12:38:09.588059+00:00",
+  "health": {
+    "status": "ok",
+    "ready": true,
+    "mode": "model",
+    "model_version": "rf-v6-d5923fe7d93e-20261007",
+    "cascade_status": "not_implemented",
+    "live_signals_enabled": true
+  },
+  "url": "https://example.com/",
+  "signals": {
+    "checks": [
+      {
+        "name": "DNS",
+        "status": "available",
+        "value": "104.20.23.154, 172.66.147.243",
+        "message": "Public DNS answers at lookup time."
+      },
+      {
+        "name": "TLS validity",
+        "status": "available",
+        "value": true,
+        "message": "HTTPS certificate chain and hostname verified."
+      },
+      {
+        "name": "Redirects",
+        "status": "available",
+        "value": 0,
+        "message": "HEAD redirect hops observed; servers may treat browser GET requests differently."
+      },
+      {
+        "name": "Domain age",
+        "status": "available",
+        "value": 11391,
+        "message": "Days since RDAP registration; registration is not a safety verdict."
+      }
+    ],
+    "redirect_chain": [
+      {
+        "host": "example.com",
+        "http_status": 200
+      }
+    ],
+    "checked_at": "2026-10-21T12:38:09.538787+00:00",
+    "affects_model_score": false
+  },
+  "score_before": 26,
+  "score_after": 26,
+  "probability_before": 0.25875196244571097,
+  "probability_after": 0.25875196244571097,
+  "browser_review": "not_performed",
+  "container_build": "not_performed_docker_unavailable"
+}

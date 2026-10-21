@@ -51,6 +51,26 @@ class ScanResponse(BaseModel):
     timings_ms: dict[str, float]
 
 
+class LiveCheck(BaseModel):
+    name: Literal["DNS", "TLS validity", "Redirects", "Domain age"]
+    status: Literal["available", "unavailable", "blocked", "not_applicable"]
+    value: str | int | float | bool | None = None
+    message: str | None = None
+
+
+class RedirectHop(BaseModel):
+    scheme: Literal["http", "https"]
+    host: str
+    http_status: int
+
+
+class LiveSignalsResponse(BaseModel):
+    checks: list[LiveCheck]
+    redirect_chain: list[RedirectHop]
+    checked_at: str
+    affects_model_score: Literal[False] = False
+
+
 def score_probability(probability: float) -> tuple[int, str]:
     import math
     if not math.isfinite(probability) or not 0 <= probability <= 1:

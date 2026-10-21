@@ -11,7 +11,9 @@ or meeting attendance is claimed. See [the evidence index](docs/milestone-accept
 Start with [the one-page guide](docs/person3-user-guide.pdf). Model binaries and
 the full review fixture are shared separately in trusted local handoff ZIPs.
 The experimental model has known false positives and misses, and its output
-is uncalibrated. Later cascade, live lookups and deployment remain future work.
+is uncalibrated. Optional live lookups are implemented separately from scoring;
+see [next-stage status](docs/person2-next-stage.md). Cascade integration and
+verified deployment remain open.
 
 ## Revised frozen classical model — 7 October 2026
 
@@ -141,7 +143,8 @@ unavailable live signals and timings. `/docs` exposes the exact OpenAPI schema.
 Bands: Low 0–30, Medium 31–60, High 61–80, Critical 81–100.
 Uncalibrated output is labeled a model score. Observed indicator points are
 never added to the probability. Model path is `classical`; cascade is always
-`not_implemented`. Domain age, DNS, TLS validity and redirects are unavailable.
+`not_implemented`. Domain age, DNS, TLS validity and redirects are excluded from
+this text-model response; opt-in observations use the separate `/signals` endpoint.
 
 Explanation status is `fixture`, `available` or `unavailable`. A successful
 explanation with zero positive features has an empty list, not invented reasons.
@@ -259,3 +262,18 @@ For the full Unicode test suite on Windows, run:
 This avoids Windows legacy default encoding in a Person 1 CSV test.
 
 Parser errors keep HTTP 422 and `INVALID_URL`. The main message gives hostname/encoding recovery instructions; `error.details` retains the original parser reason under field `url`.
+
+
+## Person 2 next stage (21 October 2026)
+
+Optional live observations now use a separate `POST /signals` endpoint. Enable
+with `PHISHX_LIVE_SIGNALS=1` in model mode, or run
+`bash scripts/start-dev.sh --live` on macOS. `/health` adds
+`live_signals_enabled`. The existing `/scan` response and frozen model remain
+unchanged; its `unavailable_signals` describes the text-only model response,
+while separately requested observations appear in the live-check panel.
+DNS/TLS/HEAD redirects/RDAP have explicit failure states and never change scores
+or SHAP explanations. Fixture mode cannot perform network checks.
+See [next-stage status](docs/person2-next-stage.md) for measured verification
+and remaining gates; [container candidate](deploy/README.md) is unbuilt here.
+CNN integration, new browser acceptance and verified hosting remain open.

@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:no-preference){button{transition:background-color .15s ease-out}.results{animation:reveal .25s ease-out}@keyframes reveal{from{clip-path:inset(0 0 8% 0)}to{clip-path:inset(0)}}}
 
 footer a{text-decoration:underline;text-underline-offset:3px}
+
+.live-checks{margin-top:28px;border-top:1px solid #c9d0c3;padding-top:8px;overflow-wrap:anywhere}.live-checks>p{max-width:72ch;font-size:14px}.live-button{min-height:44px;background:#234e37;color:white;border-radius:6px;padding:10px 18px}.live-button:hover:not(:disabled){background:#153b29}

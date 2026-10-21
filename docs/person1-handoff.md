@@ -184,3 +184,18 @@ For the full Unicode test suite on Windows, run:
 This avoids Windows legacy default encoding in a Person 1 CSV test.
 
 Parser errors keep HTTP 422 and `INVALID_URL`. The main message gives hostname/encoding recovery instructions; `error.details` retains the original parser reason under field `url`.
+
+
+## Person 2 next stage (21 October 2026)
+
+Optional live observations now use a separate `POST /signals` endpoint. Enable
+with `PHISHX_LIVE_SIGNALS=1` in model mode, or run
+`bash scripts/start-dev.sh --live` on macOS. `/health` adds
+`live_signals_enabled`. The existing `/scan` response and frozen model remain
+unchanged; its `unavailable_signals` describes the text-only model response,
+while separately requested observations appear in the live-check panel.
+DNS/TLS/HEAD redirects/RDAP have explicit failure states and never change scores
+or SHAP explanations. Fixture mode cannot perform network checks.
+See [next-stage status](person2-next-stage.md) for measured verification
+and remaining gates; [container candidate](../deploy/README.md) is unbuilt here.
+CNN integration, new browser acceptance and verified hosting remain open.

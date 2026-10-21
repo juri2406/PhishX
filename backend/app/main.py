@@ -1,3 +1,4 @@
+import asyncio
 import importlib
 import logging
 import os
@@ -8,7 +9,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from .providers import FixtureProvider, InvalidURL
-from .schemas import ScanRequest, ScanResponse, score_probability
+from .schemas import ScanRequest, ScanResponse, LiveSignalsResponse, score_probability
 
 logger = logging.getLogger("phishx")
 
@@ -20,6 +21,7 @@ def create_app(provider=None, mode=None):
 
     @asynccontextmanager
     async def lifespan(app):
+        app.state.live_slots = asyncio.Semaphore(4)
         app.state.provider = provider
         if app.state.provider is None:
             if selected_mode == "fixture":
@@ -35,7 +37,7 @@ def create_app(provider=None, mode=None):
         yield
 
     app = FastAPI(title="PhishX", version="0.1.0", lifespan=lifespan)
-    app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"], allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
+    app.add_middleware(CORSMiddleware, allow_origins=os.getenv("PHISHX_ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(","), allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
 
     def error(status, code, message, details=None):
         return JSONResponse(status_code=status, content={"error": {"code": code, "message": message, "details": details or []}})
@@ -47,7 +49,26 @@ def create_app(provider=None, mode=None):
     @app.get("/health")
     def health():
         active = app.state.provider
-        return {"status": "ok" if active else "not_ready", "ready": active is not None, "mode": selected_mode, "model_version": getattr(active, "version", None), "cascade_status": "not_implemented"}
+        return {"status": "ok" if active else "not_ready", "ready": active is not None, "mode": selected_mode, "model_version": getattr(active, "version", None), "cascade_status": "not_implemented", "live_signals_enabled": selected_mode == "model" and os.getenv("PHISHX_LIVE_SIGNALS", "0") == "1"}
+
+    @app.post("/signals", response_model=LiveSignalsResponse)
+    async def live_signals(body: ScanRequest):
+        if os.getenv("PHISHX_LIVE_SIGNALS", "0") != "1" or selected_mode == "fixture":
+            return error(503, "LIVE_CHECKS_DISABLED", "Live checks are disabled. Set PHISHX_LIVE_SIGNALS=1 in model mode to enable them.")
+        from .live_signals import collect, BlockedTarget
+        from phishx.urls import InvalidURL as SharedInvalidURL
+        try:
+            await asyncio.wait_for(app.state.live_slots.acquire(), timeout=0.05)
+        except TimeoutError:
+            return error(429, "LIVE_CHECKS_BUSY", "Live checks are busy. Retry shortly.")
+        try:
+            return await asyncio.wait_for(collect(body.url), timeout=12)
+        except (SharedInvalidURL, BlockedTarget):
+            return error(422, "LIVE_TARGET_BLOCKED", "Use a public HTTP(S) URL without credentials or a non-standard port.")
+        except TimeoutError:
+            return error(504, "LIVE_CHECKS_TIMEOUT", "Live checks timed out. The text model result is unchanged.")
+        finally:
+            app.state.live_slots.release()
 
     @app.post("/scan", response_model=ScanResponse)
     def scan(body: ScanRequest):
