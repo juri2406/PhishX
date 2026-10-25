@@ -12,7 +12,7 @@ submit them as text to PhishX only.
 | ID | Action | What to verify | Human outcome |
 | --- | --- | --- | --- |
 | H1 | Open the demo and scan `https://example.com/` | API ready; actual score, model version and explanation visible. A low score is not a safety guarantee. Record the score/version. | Pending |
-| H2 | Choose Synthetic lookalike and analyze | The result shows the normalized Punycode host and observed Unicode/brand signals. Record its score; do not substitute a desired score. | Pending |
+| H2 | Choose Lookalike URL and analyze | The result shows the normalized Punycode host and observed Unicode/brand signals. Record its score; do not substitute a desired score. | Pending |
 | H3 | Submit `javascript:alert(1)` | An understandable validation error appears; no successful result is presented for this input. | Pending |
 | H4 | Scan example.com, then choose Run live checks | DNS/TLS/redirect/domain-age observations appear with honest available/unavailable statuses and messages; model score stays unchanged. | Pending |
 | H5 | Scan `http://127.0.0.1/`, then request live checks | The live target is blocked. Offline URL-text analysis may still return a score. | Pending |

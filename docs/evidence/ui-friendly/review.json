@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-26",
+  "target": "http://127.0.0.1:8080/",
+  "scope": "Frontend refinement; existing model and API contract retained. Agent verification, not human acceptance.",
+  "build": "frontend production build passed; local nginx frontend rebuilt",
+  "checks": {
+    "desktop_layout_1280": "reviewed",
+    "mobile_layout_390": "reviewed; document width390",
+    "narrow_layout_320_long_synthetic_host": "reviewed; document width320",
+    "empty_and_loading_feedback": "observed",
+    "example_com_result": "actual model score1",
+    "synthetic_lookalike_result": "actual model score100",
+    "model_version": "cascade-release-v7-a89fff3e7d31",
+    "explanation_method": "exact_url_component_shapley",
+    "observed_additivity_residual": 3.469446951953614e-18,
+    "clear_button": "clears input/result and returns input focus",
+    "invalid_javascript_url": "validation error; no stale result; input regains focus",
+    "result_focus": "Your link analysis; next Tab reaches Run live checks",
+    "example_com_live_checks": "four actual observations available; score unchanged",
+    "private_live_target": "127.0.0.1 blocked with actual server error",
+    "technical_and_raw_api_disclosures": "opened successfully"
+  },
+  "screenshots": [
+    "desktop-ready.png",
+    "desktop-empty.png",
+    "desktop-result.png",
+    "mobile-result.png",
+    "mobile-long-host.png"
+  ],
+  "not_tested": [
+    "Disconnected API recovery UI was inspected in code, not exercised by stopping the backend.",
+    "Fixture-mode UI retained explicitly but not run against a fixture server in this review."
+  ],
+  "notes": "User-staged duplicate files and unrelated untracked work were left untouched."
+}
